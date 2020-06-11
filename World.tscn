@@ -8,7 +8,9 @@
 [node name="Fortress" parent="." instance=ExtResource( 1 )]
 position = Vector2( 484.71, 274.631 )
 
-[node name="Tower" parent="." instance=ExtResource( 2 )]
+[node name="Tower" parent="." groups=[
+"WoodTowers",
+] instance=ExtResource( 2 )]
 position = Vector2( 231.32, 153.942 )
 
 [node name="Tower2" parent="." instance=ExtResource( 2 )]
