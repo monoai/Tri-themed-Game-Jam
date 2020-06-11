@@ -6,7 +6,8 @@
 radius = 15.8475
 height = 31.5153
 
-[node name="Soldier" type="Node2D"]
+[node name="Soldier" type="RigidBody2D"]
+gravity_scale = 0.0
 
 [node name="Soldiers" type="Sprite" parent="."]
 position = Vector2( 0.0624084, -0.0565643 )
