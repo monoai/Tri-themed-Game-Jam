@@ -33,8 +33,13 @@ func createBuilding():
 		#print("Spawn_Village Position: " + String(village.position))
 		World.village_amount -= 1
 		self.queue_free()
+	
+	elif World.tower_amount == 0 and World.village_amount == 0: #Checks if the buildings already reached 0 then deletes it, otherwise we'll generate infinite amounts of buildings and get a Stack Overflow error
+		self.queue_free()
 
-	else:
+	else: 
+		#I honestly tried a lot of ways to make it loop, somehow a while loop checking whether or not the buildings has reached > 0 won't work whatever I did, i tried it for an hour and idk if I was just too sleepy or I really need to rewrite the entire code.
+		#What I just did is to make this entire fucking thing do a recursion instead, it works perfectly and I'm not gonna fucking keep working on it overnight since I have to wake up at 9 AM. Goddamn man it's 2 lines of code.
 		#print("DID NOT SPAWN")
 		createBuilding()
 	pass

@@ -27,3 +27,6 @@ position = Vector2( 587.097, 430.347 )
 
 [node name="PresetDot6" parent="." instance=ExtResource( 4 )]
 position = Vector2( 288.798, 351.498 )
+
+[node name="PresetDot7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 183.349, 209.949 )
