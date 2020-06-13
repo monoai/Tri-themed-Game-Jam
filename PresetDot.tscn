@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/it is a mystery.png" type="Texture" id=1]
+[ext_resource path="res://PresetDot.gd" type="Script" id=2]
+[ext_resource path="res://Tower.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Village.tscn" type="PackedScene" id=4]
+
+[node name="PresetDot" type="Node2D"]
+script = ExtResource( 2 )
+Tower = ExtResource( 3 )
+Village = ExtResource( 4 )
+
+[node name="it is a mystery" type="Sprite" parent="."]
+texture = ExtResource( 1 )
