@@ -5,13 +5,13 @@ export(PackedScene) var Soldier
 func _ready():
 	pass # Replace with function body.
 
-func get_towerpos(towerPos): #Rename this function if it's gonna be the clicking mechanic, unless tamad tayo lmao
-	print("Tower position: " + String(towerPos)) #Debug for looking positions
+func get_towerpos(buildingPos): #Rename this function if it's gonna be the clicking mechanic, unless tamad tayo lmao
+	print("Tower position: " + String(buildingPos)) #Debug for looking positions
 	var soldier = Soldier.instance()
 	soldier.position = position
 	add_child(soldier)
 	soldier.position = Vector2(0,0)
-	var v = Vector2(towerPos - position).normalized() * 1000 #Code was only based from the bullets code we had last time, we can probably modify this better.
+	var v = Vector2(buildingPos - position).normalized() * 1000 #Code was only based from the bullets code we had last time, we can probably modify this better.
 	soldier.linear_velocity = v
 	soldier.rotation = atan2(v.y,v.x)
 	pass
