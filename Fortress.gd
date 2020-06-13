@@ -14,6 +14,7 @@ func get_towerpos(towerPos): #Rename this function if it's gonna be the clicking
 	var v = Vector2(towerPos - position).normalized() * 1000 #Code was only based from the bullets code we had last time, we can probably modify this better.
 	soldier.linear_velocity = v
 	soldier.rotation = atan2(v.y,v.x)
+	pass
 
 func create_soldier(): #Supposedly spawn the soldiers but somehow i found another way instead
 	pass

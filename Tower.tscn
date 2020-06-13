@@ -10,7 +10,7 @@ extents = Vector2( 11.7733, 16.0241 )
 script = ExtResource( 2 )
 
 [node name="Tower" type="Sprite" parent="."]
-position = Vector2( -0.087204, -24.5076 )
+position = Vector2( 0, -24.508 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
