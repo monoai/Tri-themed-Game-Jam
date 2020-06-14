@@ -11,7 +11,7 @@ script = ExtResource( 2 )
 position = Vector2( 484.71, 274.631 )
 
 [node name="PresetDot" parent="." instance=ExtResource( 4 )]
-position = Vector2( 281.198, 108.299 )
+position = Vector2( 310.648, 95.9491 )
 
 [node name="PresetDot2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 483.547, 68.3996 )
@@ -26,7 +26,7 @@ position = Vector2( 781.845, 287.848 )
 position = Vector2( 587.097, 430.347 )
 
 [node name="PresetDot6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 288.798, 351.498 )
+position = Vector2( 305.898, 395.198 )
 
 [node name="PresetDot7" parent="." instance=ExtResource( 4 )]
-position = Vector2( 183.349, 209.949 )
+position = Vector2( 224.199, 216.599 )

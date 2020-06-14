@@ -17,6 +17,16 @@ texture = ExtResource( 1 )
 
 [node name="ShootTimer" type="Timer" parent="."]
 
+[node name="SoldierAmount" type="Label" parent="."]
+margin_left = 35.0
+margin_top = -68.0
+margin_right = 166.0
+margin_bottom = -44.0
+text = "OwO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
