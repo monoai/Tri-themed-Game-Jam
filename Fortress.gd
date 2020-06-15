@@ -1,34 +1,50 @@
-extends Node2D
+extends Area2D
 
 export(PackedScene) var Soldier
+export(Material) var Shader
 
-const SPEED = 50
+onready var World = get_node("/root/World/")
+
+var activeClick = 0
 
 func _ready():
 	$SoldierAmount.set_text("Soldiers: " + str(Resources.max_soldier))
 	pass # Replace with function body.
 
-func get_towerpos(buildingPos): #Rename this function if it's gonna be the clicking mechanic, unless tamad tayo lmao
-	if Resources.max_soldier > 0:
-		print("Tower position: " + String(buildingPos)) #Debug for looking positions
-		var soldier = Soldier.instance()
-		soldier.position = position
-		add_child(soldier)
-		soldier.add_to_group("soldier")
-		soldier.position = Vector2(0,0)
-		var direction = (buildingPos - position).normalized() #Code was only based from the bullets code we had last time, we can probably modify this better.
-		var motion = direction * SPEED
-		soldier.linear_velocity += motion
-		soldier.rotation = atan2(direction.y,direction.x)
-		Resources.max_soldier -= 1
-		$SoldierAmount.set_text("Soldiers: " + str(Resources.max_soldier))
-		pass
-	else:
-		#We should probably insert some animation or something
-		pass
+func _on_ShootTimer_timeout(): #I guess we could use this if we're not gonna let the fortress shoot an infinite and fast amount of soldiers
+	pass # Replace with function body.
 
-func create_soldier(): #Supposedly spawn the soldiers but somehow i found another way instead
+func _process(_delta):
+	if World.pass_done == 1:
+		$FortressSprite.use_parent_material = false
+		activeClick = 0
+		get_tree().call_group("tower", "anti_glow")
+		World.pass_done = 0
+	else:
+		pass
 	pass
 
-func _on_ShootTimer_timeout(): #I guess we could use this if we're not gonna let the fortress shoot an infinite and fast amount of soldiers
+
+func _on_Fortress_input_event(_viewport, _event, _shape_idx):
+	if Input.is_action_pressed("left_click"): #Could be written better daw, but fuck it, it works.
+		var buildingPos = self.position
+		
+		if activeClick == 1:
+			$FortressSprite.use_parent_material = false
+			activeClick = 0
+			if World.from_building != Vector2(0,0) && World.to_building == Vector2(0,0):
+				World.from_building = Vector2(0,0)
+				print("World.from: " + str(World.from_building))
+			
+		elif activeClick == 0:
+			$FortressSprite.use_parent_material = true
+			activeClick = 1
+			if World.from_building == Vector2(0,0) && World.to_building == Vector2(0,0):
+				World.from_building = buildingPos
+				print("World.from: " + str(World.from_building))
+			elif World.from_building != Vector2(0,0) && World.to_building == Vector2(0,0):
+				print("World.to: " + str(World.to_building))
+				$FortressSprite.use_parent_material = false
+				World.to_building = buildingPos
+				activeClick = 0
 	pass # Replace with function body.

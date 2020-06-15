@@ -1,10 +1,7 @@
 extends Node
 
 var max_soldier = 10
+var tower_select = 0
 
 func _ready():
-	pass
-
-func testo():
-	print(max_soldier)
 	pass

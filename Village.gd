@@ -2,6 +2,8 @@ extends Area2D
 
 signal villagePosition(buildingPos)
 
+var activeClick = 0
+
 func _ready():
 	add_to_group("village") #Groups thing that I'm testing out
 	connect("villagePosition", get_node("/root/World/Fortress"), "get_towerpos") #Connects the signal to the function in Fortress

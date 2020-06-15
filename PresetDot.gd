@@ -4,7 +4,6 @@ export(PackedScene) onready var Tower
 export(PackedScene) onready var Village
 
 onready var World = get_node("/root/World/")
-onready var wave = World.wave
 
 var rng = RandomNumberGenerator.new()
 

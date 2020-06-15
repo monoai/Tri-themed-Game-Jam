@@ -1,32 +1,65 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Fortress.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World.gd" type="Script" id=2]
+[ext_resource path="res://Soldier.tscn" type="PackedScene" id=3]
 [ext_resource path="res://PresetDot.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
+Soldier = ExtResource( 3 )
 
 [node name="Fortress" parent="." instance=ExtResource( 1 )]
-position = Vector2( 484.71, 274.631 )
+position = Vector2( 922.38, 559.236 )
+Soldier = null
 
 [node name="PresetDot" parent="." instance=ExtResource( 4 )]
-position = Vector2( 310.648, 95.9491 )
+position = Vector2( 480.454, 294.455 )
 
 [node name="PresetDot2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 483.547, 68.3996 )
+position = Vector2( 868.601, 185.59 )
 
 [node name="PresetDot3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 702.996, 113.049 )
+position = Vector2( 1265.03, 266.114 )
 
 [node name="PresetDot4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 781.845, 287.848 )
+position = Vector2( 1420.41, 584.411 )
 
 [node name="PresetDot5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 587.097, 430.347 )
+position = Vector2( 1079.77, 853.667 )
 
 [node name="PresetDot6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 305.898, 395.198 )
+position = Vector2( 583.328, 799.385 )
 
 [node name="PresetDot7" parent="." instance=ExtResource( 4 )]
-position = Vector2( 224.199, 216.599 )
+position = Vector2( 379.656, 553.82 )
+
+[node name="WorldFrom" type="Label" parent="."]
+margin_left = 171.239
+margin_top = 93.403
+margin_right = 211.239
+margin_bottom = 107.403
+text = "From: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldTo" type="Label" parent="."]
+margin_left = 171.239
+margin_top = 119.747
+margin_right = 211.239
+margin_bottom = 133.747
+text = "To: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldSuccess" type="Label" parent="."]
+margin_left = 172.436
+margin_top = 149.684
+margin_right = 223.436
+margin_bottom = 163.684
+text = "Success"
+__meta__ = {
+"_edit_use_anchors_": false
+}
