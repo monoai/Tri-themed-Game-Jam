@@ -15,7 +15,7 @@ var from_building = Vector2(0,0)
 var to_building = Vector2(0,0) setget pass_pos
 var pass_done = 0
 
-const SPEED = 100
+const SPEED = 200
 
 func _ready():
 	connect("buildPos", get_node("/root/World"), "soldier_move") #Connects the signal to the function in Soldier

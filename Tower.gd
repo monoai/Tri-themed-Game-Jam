@@ -1,10 +1,19 @@
 extends Area2D
 
+export(PackedScene) var Sawmill
+export(PackedScene) var Mine
+
 onready var World = get_node("/root/World/")
 
+var rng = RandomNumberGenerator.new()
+
 var soldiers_held = 0
+var sub_buildings_max = 2
+
 var activeClick = 0
 var destinationClick = 0
+
+var SPAWN_RAD = 200
 
 func _ready():
 	$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
@@ -69,6 +78,31 @@ func _on_Tower_body_entered(body):
 		destinationClick = 0
 		$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
 		body.queue_free()
+		
+		if sub_buildings_max > 0:
+			while sub_buildings_max != 0:
+				rng.randomize()
+				var chance = rng.randi_range(1,2)
+				var rad = rng.randf()*(SPAWN_RAD-115) + 80
+				var deg = rng.randf()*360
+				var radiusPos =  Vector2(rad*cos(deg),rad*sin(deg))
+				
+				print(chance)
+				if chance == 1:
+					var sawmill = Sawmill.instance()
+					self.add_child(sawmill, true)
+					sawmill.position = radiusPos
+					print("Sawmill Spawned")
+					sub_buildings_max -= 1
+				elif chance == 2:
+					var mine = Mine.instance()
+					self.add_child(mine, true)
+					mine.position = radiusPos
+					print("Mine Spawned")
+					sub_buildings_max -= 1
+				pass
+		else:
+			pass
 		
 	pass # Replace with function body.
 
