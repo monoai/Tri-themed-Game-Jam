@@ -4,7 +4,7 @@
 [ext_resource path="res://Tower.gd" type="Script" id=2]
 [ext_resource path="res://Shader/aura.shader" type="Shader" id=3]
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
 shader_param/aura_width = 2.0
 shader_param/aura_color = Color( 0, 0.764706, 1, 1 )
@@ -13,7 +13,7 @@ shader_param/aura_color = Color( 0, 0.764706, 1, 1 )
 extents = Vector2( 19.941, 31.9574 )
 
 [node name="Tower" type="Area2D"]
-material = SubResource( 3 )
+material = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="TowerSprite" type="Sprite" parent="."]
@@ -34,4 +34,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="body_entered" from="." to="." method="_on_Tower_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Tower_body_exited"]
 [connection signal="input_event" from="." to="." method="_on_Tower_input_event"]

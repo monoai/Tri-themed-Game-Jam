@@ -15,7 +15,7 @@ var from_building = Vector2(0,0)
 var to_building = Vector2(0,0) setget pass_pos
 var pass_done = 0
 
-const SPEED = 50
+const SPEED = 100
 
 func _ready():
 	connect("buildPos", get_node("/root/World"), "soldier_move") #Connects the signal to the function in Soldier
@@ -36,19 +36,14 @@ func pass_pos(to_building):
 	pass
 
 func soldier_move(fromPos, toPos):
-	if Resources.max_soldier > 0:
-		var soldier = Soldier.instance()
-		soldier.position = fromPos
-		add_child(soldier)
-		soldier.add_to_group("soldier")
-		var direction = (toPos - fromPos).normalized() #Code was only based from the bullets code we had last time, we can probably modify this better.
-		var motion = direction * SPEED
-		soldier.linear_velocity += motion
-		soldier.rotation = atan2(direction.y,direction.x)
-		Resources.max_soldier -= 1
-		#$SoldierAmount.set_text("Soldiers: " + str(Resources.max_soldier))
-		pass
-	else:
-		#We should probably insert some animation or something
-		pass
+	var soldier = Soldier.instance()
+	soldier.position = fromPos
+	add_child(soldier)
+	soldier.add_to_group("soldier")
+	var direction = (toPos - fromPos).normalized() #Code was only based from the bullets code we had last time, we can probably modify this better.
+	var motion = direction * SPEED
+	soldier.linear_velocity += motion
+	soldier.rotation = atan2(direction.y,direction.x)
+	#Resources.max_soldier -= 1
+	#$SoldierAmount.set_text("Soldiers: " + str(Resources.max_soldier))
 	pass
