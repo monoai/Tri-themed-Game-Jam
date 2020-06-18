@@ -3,7 +3,6 @@ extends Area2D
 onready var World = get_node("/root/World/")
 
 var soldiers_held = 0
-var destinationClick = 0
 
 func _ready():
 	soldiers_held = Resources.max_soldier
@@ -40,6 +39,5 @@ func _on_Fortress_body_entered(body):
 	if body is soldier_class and body.destination == position:
 		print("Soldier successfully got!")
 		soldiers_held += 1
-		destinationClick = 0
 		$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
 		body.queue_free()

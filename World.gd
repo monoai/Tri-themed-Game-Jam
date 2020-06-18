@@ -21,6 +21,7 @@ func _process(_delta):
 	$WorldFrom.set_text("From: " + str(from_building))
 	$WorldTo.set_text("To: " + str(to_building))
 	$WoodCounter.set_text("Wood: " + str(Resources.wood))
+	$SteelCounter.set_text("Steel: " + str(Resources.steel))
 	pass
 
 func pass_pos():

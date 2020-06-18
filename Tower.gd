@@ -10,8 +10,6 @@ var rng = RandomNumberGenerator.new()
 var soldiers_held = 0
 var sub_buildings_max = 2
 
-var destinationClick = 0
-
 var SPAWN_RAD = 200
 
 func _ready():
@@ -48,7 +46,6 @@ func _on_Tower_body_entered(body):
 	if body is soldier_class and body.destination == position:
 		print("Soldier successfully got!")
 		soldiers_held += 1
-		destinationClick = 0
 		$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
 		body.queue_free()
 		

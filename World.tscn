@@ -64,20 +64,20 @@ __meta__ = {
 }
 
 [node name="WoodCounter" type="Label" parent="."]
-margin_left = 182.016
-margin_top = 219.138
-margin_right = 227.016
-margin_bottom = 233.138
+margin_left = 175.209
+margin_top = 207.982
+margin_right = 220.209
+margin_bottom = 221.982
 text = "Wood: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SteelCounter" type="Label" parent="."]
-margin_left = 189.201
-margin_top = 253.865
-margin_right = 229.201
-margin_bottom = 267.865
+margin_left = 175.209
+margin_top = 236.982
+margin_right = 223.209
+margin_bottom = 250.982
 text = "Steel: "
 __meta__ = {
 "_edit_use_anchors_": false
