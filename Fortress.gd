@@ -1,23 +1,43 @@
-extends Node2D
+extends Area2D
 
-export(PackedScene) var Soldier
+onready var World = get_node("/root/World/")
+
+var soldiers_held = 0
 
 func _ready():
+	soldiers_held = Resources.max_soldier
+	$SoldierAmount.set_text("Soldiers: " + str(Resources.max_soldier))
 	pass # Replace with function body.
 
-func get_towerpos(towerPos): #Rename this function if it's gonna be the clicking mechanic, unless tamad tayo lmao
-	print("Tower position: " + String(towerPos)) #Debug for looking positions
-	var soldier = Soldier.instance()
-	soldier.position = position
-	add_child(soldier)
-	soldier.position = Vector2(0,0)
-	var v = Vector2(towerPos - position).normalized() * 1000 #Code was only based from the bullets code we had last time, we can probably modify this better.
-	soldier.linear_velocity = v
-	soldier.rotation = atan2(v.y,v.x)
+func _process(_delta):
 	pass
 
-func create_soldier(): #Supposedly spawn the soldiers but somehow i found another way instead
-	pass
 
-func _on_ShootTimer_timeout(): #I guess we could use this if we're not gonna let the fortress shoot an infinite and fast amount of soldiers
-	pass # Replace with function body.
+func _on_Fortress_input_event(_viewport, _event, _shape_idx):
+	if Input.is_action_pressed("left_click"): #Could be written better daw, but fuck it, it works.
+		
+		if !Utils.selected:
+			$FortressSprite.use_parent_material = true
+			Utils.selected = self
+			World.from_building = position
+			
+		elif Utils.selected == self:
+			$FortressSprite.use_parent_material = false
+			Utils.selected = null
+			World.from_building = Vector2(0,0)
+			$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
+			
+		elif Utils.selected:
+			World.to_building = position
+			if Utils.selected.soldiers_held > 0:
+				Utils.selected.soldiers_held -= 1
+				Utils.selected.get_node("SoldierAmount").set_text("Soldiers: " + str(Utils.selected.soldiers_held))
+				World.pass_pos()
+
+
+func _on_Fortress_body_entered(body):
+	if body is soldier_class and body.destination == position:
+		print("Soldier successfully got!")
+		soldiers_held += 1
+		$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
+		body.queue_free()
