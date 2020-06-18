@@ -15,9 +15,9 @@ func action_menu():
 	if !Utils.selected:
 		$BuildingSprite.use_parent_material = true
 		Utils.selected = self
-		if Resources.food % 20:
+		if Resources.food / 20 && Resources.food > 0:
 			Resources.food -= 20
-			Resources.total_soldier += 1
+			get_node("/root/World/Fortress").soldiers_held += 1
 		else:
 			print("Not divisible by 20")
 		
