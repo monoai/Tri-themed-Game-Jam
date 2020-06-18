@@ -62,3 +62,23 @@ text = "Success"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="WoodCounter" type="Label" parent="."]
+margin_left = 182.016
+margin_top = 219.138
+margin_right = 227.016
+margin_bottom = 233.138
+text = "Wood: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SteelCounter" type="Label" parent="."]
+margin_left = 189.201
+margin_top = 253.865
+margin_right = 229.201
+margin_bottom = 267.865
+text = "Steel: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
