@@ -16,8 +16,6 @@ var destinationClick = 0
 var SPAWN_RAD = 200
 
 func _ready():
-	$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
-	add_to_group("tower") #Groups thing that I'm testing out
 	pass # Replace with function body.
 
 func _process(_delta):
@@ -35,11 +33,8 @@ func _on_Tower_input_event(_viewport, _event, _shape_idx):
 		if activeClick == 1:
 			$TowerSprite.use_parent_material = false
 			activeClick = 0
-			if soldiers_held > 0:
-				soldiers_held += 1
-				$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
-			else:
-				$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
+			soldiers_held += 1
+			$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
 			if World.from_building != Vector2(0,0) && World.to_building == Vector2(0,0):
 				World.from_building = Vector2(0,0)
 				print("World.from: " + str(World.from_building))
