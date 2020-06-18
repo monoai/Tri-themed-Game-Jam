@@ -82,3 +82,23 @@ text = "Steel: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FoodCounter" type="Label" parent="."]
+margin_left = 175.73
+margin_top = 268.545
+margin_right = 223.73
+margin_bottom = 282.545
+text = "Food: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TotalSoldier" type="Label" parent="."]
+margin_left = 175.73
+margin_top = 295.545
+margin_right = 269.73
+margin_bottom = 309.545
+text = "Total Soldiers: "
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -16,7 +16,7 @@ extents = Vector2( 59.6287, 37.6237 )
 material = SubResource( 1 )
 script = ExtResource( 2 )
 
-[node name="FortressSprite" type="Sprite" parent="."]
+[node name="BuildingSprite" type="Sprite" parent="."]
 position = Vector2( -0.0594025, 0.0927582 )
 texture = ExtResource( 1 )
 

@@ -1,13 +1,10 @@
-extends Area2D
+extends "res://Scripts/Buildings.gd"
 
 export(PackedScene) var Sawmill
 export(PackedScene) var Mine
 
-onready var World = get_node("/root/World/")
-
 var rng = RandomNumberGenerator.new()
 
-var soldiers_held = 0
 var sub_buildings_max = 2
 
 var SPAWN_RAD = 200
@@ -17,29 +14,9 @@ func _ready():
 	add_to_group("tower") #Groups thing that I'm testing out
 	pass
 
-func _process(_delta):
-	pass
-
 func _on_Tower_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_pressed("left_click"): #Could be written better daw, but fuck it, it works.
-		
-		if !Utils.selected:
-			$TowerSprite.use_parent_material = true
-			Utils.selected = self
-			World.from_building = position
-		
-		elif Utils.selected == self:
-			$TowerSprite.use_parent_material = false
-			Utils.selected = null
-			World.from_building = Vector2(0,0)
-			$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
-
-		elif Utils.selected:
-			World.to_building = position
-			if Utils.selected.soldiers_held > 0:
-				Utils.selected.soldiers_held -= 1
-				Utils.selected.get_node("SoldierAmount").set_text("Soldiers: " + str(Utils.selected.soldiers_held))
-				World.pass_pos()
+		position_pass()
 
 
 func _on_Tower_body_entered(body):
@@ -81,3 +58,8 @@ func _on_Tower_body_exited(body):
 		print("tries to exit")
 	pass # Replace with function body.
 
+func _on_Tower_mouse_entered():
+		pass # Replace with function body.
+
+func _on_Tower_mouse_exited():
+	pass # Replace with function body.
