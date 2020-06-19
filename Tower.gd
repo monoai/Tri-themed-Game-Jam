@@ -18,7 +18,6 @@ func _on_Tower_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_pressed("left_click"): #Could be written better daw, but fuck it, it works.
 		position_pass()
 
-
 func _on_Tower_body_entered(body):
 	if body is soldier_class and body.destination == position:
 		print("Soldier successfully got!")

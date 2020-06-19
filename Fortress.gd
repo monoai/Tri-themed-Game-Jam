@@ -6,7 +6,7 @@ func _ready():
 	Utils.fortress_pos = position
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
 
 func _on_Fortress_input_event(_viewport, _event, _shape_idx):

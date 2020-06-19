@@ -25,11 +25,6 @@ func prioritize_building():
 
 func _on_WaveTimer_timeout():
 	var firstBlood = prioritize_building().position
-	_on_SpawnTimer_timeout(firstBlood)
-	pass # Replace with function body.
-
-
-func _on_SpawnTimer_timeout(firstBlood):
 	while World.enemy_amount > 0:
 		var enemy = Enemy.instance()
 		add_child(enemy)
