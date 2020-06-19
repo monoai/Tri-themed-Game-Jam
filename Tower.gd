@@ -50,6 +50,8 @@ func _on_Tower_body_entered(body):
 				pass
 		else:
 			pass
+	elif body is enemy_class:
+		body.attack()
 		
 	pass # Replace with function body.
 

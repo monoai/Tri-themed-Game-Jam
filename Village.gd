@@ -1,15 +1,13 @@
 extends "res://Scripts/Buildings.gd"
 
-var food_soldiers = 0
 var food_gen = 0
 
 func _ready():
-	pass # Replace with function body.
+	add_to_group("non_combat")
 
 func _on_Village_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_pressed("left_click"): #Could be written better daw, but fuck it, it works.
-		action_menu()
-	pass # Replace with function body.
+		position_pass()
 
 func action_menu():
 	if !Utils.selected:
@@ -24,10 +22,10 @@ func action_menu():
 	elif Utils.selected == self:
 		$BuildingSprite.use_parent_material = false
 		Utils.selected = null
-		World.from_building = Vector2(0,0)
-		$SoldierAmount.set_text("Food Soldiers: " + str(food_soldiers))
+		World.from_building = position
+		$SoldierAmount.set_text("Food Soldiers: " + str(soldiers_held))
 		
-	elif Utils.selected:
+	elif Utils.selected.is_in_group("non_combat"):
 		World.to_building = position
 		if Utils.selected.soldiers_held > 0:
 			Utils.selected.soldiers_held -= 1
@@ -38,14 +36,15 @@ func action_menu():
 func _on_Village_body_entered(body):
 	if body is soldier_class and body.destination == position:
 		print("Soldier successfully got!")
-		food_soldiers += 1
-		$SoldierAmount.set_text("Food Soldiers: " + str(food_soldiers))
+		soldiers_held += 1
+		$SoldierAmount.set_text("Food Soldiers: " + str(soldiers_held))
 		body.queue_free()
-	pass # Replace with function body.
+	elif body is enemy_class:
+		body.attack()
 
 func foodGeneration():
-	if food_soldiers > 0:
-		food_gen = food_soldiers
+	if soldiers_held > 0:
+		food_gen = soldiers_held
 		Resources.food += food_gen
 		print("Sawmill success")
 	pass

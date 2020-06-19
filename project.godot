@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "RigidBody2D",
+"class": "enemy_class",
+"language": "GDScript",
+"path": "res://Enemy.gd"
+}, {
+"base": "RigidBody2D",
 "class": "soldier_class",
 "language": "GDScript",
 "path": "res://Soldier.gd"
 } ]
 _global_script_class_icons={
+"enemy_class": "",
 "soldier_class": ""
 }
 
