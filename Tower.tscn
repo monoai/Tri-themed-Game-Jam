@@ -14,7 +14,7 @@ shader_param/aura_color = Color( 0, 0.764706, 1, 1 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 19.941, 31.9574 )
 
-[node name="Tower" type="Area2D" groups=[
+[node name="Tower1" type="Area2D" groups=[
 "tower",
 ]]
 material = SubResource( 1 )

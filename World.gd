@@ -4,10 +4,12 @@ export(PackedScene) var Soldier
 
 var max_tower = [4,5]
 var max_village = [2,6]
+var max_enemy = [15]
 var wave = 0
 
 var tower_amount = max_tower[wave]
 var village_amount = max_village[wave]
+var enemy_amount = max_enemy[wave]
 
 var from_building = Vector2(0,0)
 var to_building = Vector2(0,0)
@@ -15,6 +17,7 @@ var to_building = Vector2(0,0)
 const SPEED = 200
 
 func _ready():
+	Resources.get_max_soldiers()
 	pass
 
 func _process(_delta):

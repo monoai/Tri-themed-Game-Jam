@@ -1,23 +1,41 @@
 extends Node2D
 
 export(PackedScene) var Enemy
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
+onready var World = get_node("/root/World")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_Timer_timeout():
-	var enemy = Enemy.instance()
-	add_child(enemy)
-	enemy.move(Vector2.ZERO, Utils.fortress_pos - position)
+func prioritize_building():
+	var y = 1
+	for i in World.max_tower[World.wave]:
+		Resources.towers.append(get_node("/root/World/Tower" + str(y)))
+		y += 1
+		print(Resources.towers)
 	
+	var max_val = 0
+	var actual_max
+	for x in Resources.towers:
+		var val =  x.soldiers_held
+		if val > max_val:
+			max_val = val
+			actual_max = x
+	return actual_max
+
+func _on_WaveTimer_timeout():
+	var firstBlood = prioritize_building().position
+	_on_SpawnTimer_timeout(firstBlood)
+	pass # Replace with function body.
+
+
+func _on_SpawnTimer_timeout(firstBlood):
+	while World.enemy_amount > 0:
+		var enemy = Enemy.instance()
+		add_child(enemy)
+		position = self.position
+		World.enemy_amount -= 1
+		enemy.move(Vector2.ZERO, firstBlood - position)
+		$SpawnTimer.start()
+		yield($SpawnTimer, "timeout")
+	pass # Replace with function body.

@@ -46,7 +46,7 @@ func foodGeneration():
 	if soldiers_held > 0:
 		food_gen = soldiers_held
 		Resources.food += food_gen
-		print("Sawmill success")
+		#print("Food success")
 	pass
 
 func _on_Timer_timeout():

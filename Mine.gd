@@ -12,8 +12,7 @@ func steelGeneration():
 	if soldiers_held > 0:
 		steel_gen = soldiers_held
 		Resources.steel += steel_gen
-		print(Resources.steel)
-		print("Mine success")
+		#print("Mine success")
 	pass
 
 

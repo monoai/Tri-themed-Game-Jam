@@ -12,8 +12,7 @@ func woodGeneration():
 	if soldiers_held > 0:
 		wood_gen = soldiers_held
 		Resources.wood += wood_gen
-		print(Resources.wood)
-		print("Sawmill success")
+		#print("Sawmill success")
 	pass
 
 

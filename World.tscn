@@ -10,6 +10,9 @@
 script = ExtResource( 2 )
 Soldier = ExtResource( 3 )
 
+[node name="EnemySpawn" parent="." instance=ExtResource( 5 )]
+position = Vector2( 95.6659, 196.367 )
+
 [node name="Fortress" parent="." instance=ExtResource( 1 )]
 position = Vector2( 922.38, 559.236 )
 
@@ -103,6 +106,3 @@ text = "Total Soldiers: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="EnemySpawn" parent="." instance=ExtResource( 5 )]
-position = Vector2( 95.6659, 196.367 )
