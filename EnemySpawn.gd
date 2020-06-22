@@ -21,7 +21,6 @@ func prioritize_building():
 		if max_val > val:
 			max_val = val
 			actual_max = x
-	
 	return actual_max
 
 func _on_WaveTimer_timeout():
