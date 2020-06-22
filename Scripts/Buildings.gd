@@ -5,6 +5,7 @@ onready var World = get_node("/root/World/")
 var soldiers_held = 0
 
 func _ready():
+	Resources.buildings_list.append(self)
 	pass # Replace with function body.
 
 func position_pass():
@@ -12,13 +13,13 @@ func position_pass():
 		$BuildingSprite.use_parent_material = true
 		Utils.selected = self
 		World.from_building = position
-		
+
 	elif Utils.selected == self:
 		$BuildingSprite.use_parent_material = false
 		Utils.selected = null
 		World.from_building = Vector2(0,0)
 		$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
-		
+
 	elif Utils.selected and !Utils.selected.is_in_group("non_combat"):
 		World.to_building = position
 		if Utils.selected.soldiers_held > 0:

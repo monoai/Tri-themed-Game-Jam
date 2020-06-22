@@ -7,10 +7,7 @@ var wood = 0
 var steel = 0
 var food = 0
 
-var towers = []
+var buildings_list = []
 
 func _ready():
 	pass
-
-func get_max_soldiers():
-		print(towers)

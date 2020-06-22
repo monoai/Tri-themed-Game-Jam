@@ -17,7 +17,6 @@ var to_building = Vector2(0,0)
 const SPEED = 200
 
 func _ready():
-	Resources.get_max_soldiers()
 	pass
 
 func _process(_delta):
