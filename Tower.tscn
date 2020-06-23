@@ -39,6 +39,26 @@ text = "Soldiers: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SteelAmount" type="Label" parent="."]
+margin_left = 29.731
+margin_top = -85.7194
+margin_right = 77.731
+margin_bottom = -71.7194
+text = "Steel: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WoodAmount" type="Label" parent="."]
+margin_left = 30.7016
+margin_top = -70.5133
+margin_right = 83.7016
+margin_bottom = -56.5133
+text = "Wood: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="." to="." method="_on_Tower_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Tower_body_exited"]
 [connection signal="input_event" from="." to="." method="_on_Tower_input_event"]

@@ -11,7 +11,7 @@ func steelGeneration():
 	var soldiers_held = get_parent().soldiers_held
 	if soldiers_held > 0:
 		steel_gen = soldiers_held
-		Resources.steel += steel_gen
+		get_parent().temp_steel += steel_gen
 		#print("Mine success")
 	pass
 

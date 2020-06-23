@@ -36,5 +36,5 @@ func pass_pos():
 func soldier_move(fromPos, toPos):
 	var soldier = Soldier.instance()
 	soldier.destination = toPos
-	add_child(soldier)
+	add_child(soldier, true)
 	soldier.move(fromPos, toPos)

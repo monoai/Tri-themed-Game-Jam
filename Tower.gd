@@ -5,7 +5,11 @@ export(PackedScene) var Mine
 
 var rng = RandomNumberGenerator.new()
 
+signal res_pass(resource)
+
 var sub_buildings_max = 2
+var temp_wood = 0
+var temp_steel = 0
 
 var SPAWN_RAD = 200
 
@@ -13,6 +17,9 @@ func _ready():
 	$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
 	add_to_group("tower") #Groups thing that I'm testing out
 	pass
+
+func _process(delta):
+	$SteelAmount.set_text("Steel: " + str(temp_steel))
 
 func _on_Tower_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_pressed("left_click"): #Could be written better daw, but fuck it, it works.
@@ -55,8 +62,12 @@ func _on_Tower_body_entered(body):
 	pass # Replace with function body.
 
 func _on_Tower_body_exited(body):
-	if body.is_in_group("soldier"):
-		print("tries to exit")
+	if temp_steel > 0 and temp_steel / 20:
+		var pass_ress = 20
+		temp_steel -= 20
+		emit_signal("res_pass", pass_ress)
+	#if body.is_in_group("soldier"):
+	#	print("tries to exit")
 	pass # Replace with function body.
 
 func _on_Tower_mouse_entered():

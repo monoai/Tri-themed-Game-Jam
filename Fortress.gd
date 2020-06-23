@@ -16,6 +16,8 @@ func _on_Fortress_input_event(_viewport, _event, _shape_idx):
 func _on_Fortress_body_entered(body):
 	if body is soldier_class and body.destination == position:
 		print("Soldier successfully got!")
+		if body.res_held > 0:
+			Resources.steel += body.res_held
 		soldiers_held += 1
 		body.queue_free()
 	elif body is enemy_class:

@@ -10,6 +10,7 @@ shader_param/aura_width = 2.0
 shader_param/aura_color = Color( 1, 0, 0, 1 )
 
 [node name="Sawmill" type="Node2D"]
+show_behind_parent = true
 material = SubResource( 1 )
 script = ExtResource( 2 )
 
