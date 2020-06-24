@@ -1,9 +1,12 @@
 extends "res://Scripts/Buildings.gd"
 
+var buildname = "Fortress"
+
 func _ready():
+	temp_steel = "None"
+	temp_wood = "None"
 	soldiers_held = Resources.total_soldier
 	$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
-	Utils.fortress_pos = position
 	pass # Replace with function body.
 
 func _process(_delta):

@@ -21,7 +21,6 @@ func attack():
 	linear_velocity = Vector2.ZERO
 	$AnimatedSprite.play("attack")
 
-
 func _on_AnimatedSprite_animation_finished():
 	loop_ctr += 1
 	if loop_ctr == 3:

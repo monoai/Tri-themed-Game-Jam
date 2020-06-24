@@ -17,15 +17,16 @@ var to_building = Vector2(0,0)
 const SPEED = 200
 
 func _ready():
+	
 	pass
 
 func _process(_delta):
 	$WorldFrom.set_text("From: " + str(from_building))
 	$WorldTo.set_text("To: " + str(to_building))
-	$WoodCounter.set_text("Wood: " + str(Resources.wood))
-	$SteelCounter.set_text("Steel: " + str(Resources.steel))
-	$FoodCounter.set_text("Food: " + str(Resources.food))
-	$TotalSoldier.set_text("Total Soldier: " + str(Resources.total_soldier))
+	$GUI/ResourcePanel/VBoxContainer/WoodResource/WoodCounter.set_text("Wood: " + str(Resources.wood))
+	$GUI/ResourcePanel/VBoxContainer/SteelResource/SteelCounter.set_text("Steel: " + str(Resources.steel))
+	$GUI/ResourcePanel/VBoxContainer/FoodResource/FoodCounter.set_text("Food: " + str(Resources.food))
+	$GUI/ResourcePanel/VBoxContainer/SoldierResource/TotalSoldier.set_text("Total Soldier: " + str(Resources.total_soldier))
 	pass
 
 func pass_pos():

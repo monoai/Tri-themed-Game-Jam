@@ -2,7 +2,6 @@ extends Node
 
 
 var selected = null
-var fortress_pos
 
 
 # Called when the node enters the scene tree for the first time.

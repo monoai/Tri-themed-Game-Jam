@@ -35,5 +35,5 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 0.960784, 0.905882, 0.905882, 1 )
 frames = SubResource( 2 )
-animation = "walk"
+animation = "New Anim"
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
