@@ -7,6 +7,7 @@ const SPEED = 200
 var loop_ctr = 0
 var destination
 var attacking = null
+export var newPos = Vector2()
 
 func _ready():
 	pass
@@ -14,9 +15,17 @@ func _ready():
 func move(fromPos, toPos):
 	position = fromPos
 	add_to_group("enemy")
-	var direction = (toPos - fromPos).normalized()
-	var motion = direction * SPEED
-	linear_velocity += motion
+	var distance = (toPos - fromPos).length()
+	if distance > 900:
+		$AnimatedSprite.play("walk")
+		print("Distance over 900")
+		newPos = Utils.buildingList[randi()%6].position
+		toPos = newPos
+		move(fromPos, toPos)
+	else:
+		var direction = (toPos - fromPos).normalized()
+		var motion = direction * SPEED
+		linear_velocity += motion
 
 func attack():
 	linear_velocity = Vector2.ZERO
@@ -24,8 +33,7 @@ func attack():
 
 func change_target():
 	$AnimatedSprite.play("walk")
-	return Utils.buildingList[randi()%7].position
-	
+	return Utils.buildingList[randi()%6].position
 
 func _on_AnimatedSprite_animation_finished():
 	loop_ctr += 1

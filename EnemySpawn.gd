@@ -27,4 +27,3 @@ func send(target):
 	var enemy = Enemy.instance()
 	get_parent().get_parent().add_child(enemy)
 	enemy.move(position, target)
-	

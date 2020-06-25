@@ -11,7 +11,7 @@ func woodGeneration():
 	var soldiers_held = get_parent().soldiers_held
 	if soldiers_held > 0:
 		wood_gen = soldiers_held
-		Resources.wood += wood_gen
+		get_parent().temp_wood += wood_gen
 		#print("Sawmill success")
 	pass
 

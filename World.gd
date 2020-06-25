@@ -17,7 +17,7 @@ var to_building = Vector2(0,0)
 const SPEED = 200
 
 func _ready():
-	Utils.buildingList.append(get_node("Fortress"))
+	#Utils.buildingList.append(get_node("Fortress"))
 	pass
 
 func _process(_delta):
@@ -26,7 +26,7 @@ func _process(_delta):
 	$GUI/ResourcePanel/VBoxContainer/WoodResource/WoodCounter.set_text("Wood: " + str(Resources.wood))
 	$GUI/ResourcePanel/VBoxContainer/SteelResource/SteelCounter.set_text("Steel: " + str(Resources.steel))
 	$GUI/ResourcePanel/VBoxContainer/FoodResource/FoodCounter.set_text("Food: " + str(Resources.food))
-	$GUI/ResourcePanel/VBoxContainer/SoldierResource/TotalSoldier.set_text("Total Soldier: " + str(Resources.total_soldier))
+	$GUI/ResourcePanel/VBoxContainer/SoldierResource/TotalSoldier.set_text("Total Soldier: " + str($Fortress.soldiers_held))
 	pass
 
 func pass_pos(source):
@@ -48,3 +48,10 @@ func soldier_move(fromPos, toPos, source):
 	
 	add_child(soldier, true)
 	soldier.move(fromPos, toPos)
+
+
+func _on_SoldierGen_pressed():
+	if Resources.food >= 20:
+		$Fortress.soldiers_held += 1
+		Resources.food -= 20
+	pass # Replace with function body.

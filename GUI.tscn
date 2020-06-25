@@ -243,7 +243,7 @@ margin_bottom = 160.0
 rect_min_size = Vector2( 100, 70 )
 text = "ResourcePrio"
 
-[node name="Food" type="Button" parent="ActionPanel/VBoxContainer"]
+[node name="SoldierGen" type="Button" parent="ActionPanel/VBoxContainer"]
 margin_top = 170.0
 margin_right = 100.0
 margin_bottom = 240.0

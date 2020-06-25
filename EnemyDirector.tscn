@@ -20,5 +20,9 @@ position = Vector2( -13.9475, 532.794 )
 [node name="Timers" type="Node2D" parent="."]
 
 [node name="SpawnTimer" type="Timer" parent="Timers"]
+
+[node name="WaveTimer" type="Timer" parent="Timers"]
+wait_time = 5.0
 autostart = true
 [connection signal="timeout" from="Timers/SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="Timers/WaveTimer" to="." method="_on_WaveTimer_timeout"]
