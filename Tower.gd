@@ -5,9 +5,6 @@ export(PackedScene) var Mine
 
 var rng = RandomNumberGenerator.new()
 
-signal res_pass(resource)
-
-
 var sub_buildings_max = 2
 
 var SPAWN_RAD = 200

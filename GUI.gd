@@ -3,7 +3,7 @@ extends CanvasLayer
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if Utils.selected:
 		info_panel(Utils.selected.buildname, Utils.selected.soldiers_held, Utils.selected.temp_steel, Utils.selected.temp_wood )
 	else:

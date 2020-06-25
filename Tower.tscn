@@ -60,7 +60,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="body_entered" from="." to="." method="_on_Tower_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_Tower_body_exited"]
 [connection signal="input_event" from="." to="." method="_on_Tower_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_Tower_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Tower_mouse_exited"]

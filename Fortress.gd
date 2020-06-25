@@ -1,7 +1,5 @@
 extends "res://Scripts/Buildings.gd"
 
-
-
 func _ready():
 	buildname = "Fortress"
 	temp_steel = 0

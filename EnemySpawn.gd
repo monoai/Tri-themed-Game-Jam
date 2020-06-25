@@ -28,4 +28,3 @@ func send(target):
 	get_parent().get_parent().add_child(enemy)
 	enemy.move(position, target)
 	
-	

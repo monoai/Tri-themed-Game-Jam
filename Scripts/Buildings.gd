@@ -2,8 +2,6 @@ extends Area2D
 
 onready var World = get_node("/root/World/")
 
-signal info_pass(buildname, soldierheld, temp_steel, temp_wood)
-
 var soldiers_held = 0
 var temp_steel = 0
 var temp_wood = 0
@@ -13,7 +11,7 @@ var buildname
 func _ready():
 	Resources.buildings_list.append(self)
 	
-func _process(delta):
+func _process(_delta):
 	$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
 		
 func position_pass():
