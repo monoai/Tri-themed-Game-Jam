@@ -17,7 +17,7 @@ var to_building = Vector2(0,0)
 const SPEED = 200
 
 func _ready():
-	
+	Utils.buildingList.append(get_node("Fortress"))
 	pass
 
 func _process(_delta):
@@ -29,13 +29,22 @@ func _process(_delta):
 	$GUI/ResourcePanel/VBoxContainer/SoldierResource/TotalSoldier.set_text("Total Soldier: " + str(Resources.total_soldier))
 	pass
 
-func pass_pos():
+func pass_pos(source):
 	$WorldSuccess.set_text("Success from: " + str(from_building) + " to: " +  str(to_building))
-	soldier_move(from_building, to_building)
+	soldier_move(from_building, to_building, source)
 
 
-func soldier_move(fromPos, toPos):
+func soldier_move(fromPos, toPos, source):
 	var soldier = Soldier.instance()
 	soldier.destination = toPos
+	
+	if source.temp_steel >= 20:
+		soldier.steel_held = 20
+		source.temp_steel -= 20
+		
+	if source.temp_wood >= 20:
+		soldier.wood_held = 20
+		source.temp_wood -= 20
+	
 	add_child(soldier, true)
 	soldier.move(fromPos, toPos)

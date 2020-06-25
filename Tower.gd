@@ -7,13 +7,13 @@ var rng = RandomNumberGenerator.new()
 
 signal res_pass(resource)
 
-var buildname = "Tower"
+
 var sub_buildings_max = 2
 
 var SPAWN_RAD = 200
 
 func _ready():
-	
+	buildname = "Tower"
 	$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
 	add_to_group("tower") #Groups thing that I'm testing out
 	pass
@@ -29,6 +29,8 @@ func _on_Tower_body_entered(body):
 	if body is soldier_class and body.destination == position:
 		print("Soldier successfully got!")
 		soldiers_held += 1
+		temp_steel += body.steel_held
+		temp_wood += body.wood_held
 		$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
 		body.queue_free()
 		
@@ -58,16 +60,8 @@ func _on_Tower_body_entered(body):
 			pass
 	elif body is enemy_class:
 		body.attack()
+		body.attacking = self
 		
-	pass # Replace with function body.
-
-func _on_Tower_body_exited(body):
-	var pass_ress = 20
-	if body is soldier_class and temp_steel > 0 and temp_steel / 20:
-		temp_steel -= 20
-		emit_signal("res_pass", pass_ress)
-	#if body.is_in_group("soldier"):
-	#	print("tries to exit")
 	pass # Replace with function body.
 
 func _on_Tower_mouse_entered():

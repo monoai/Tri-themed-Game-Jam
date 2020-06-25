@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Fortress.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World.gd" type="Script" id=2]
 [ext_resource path="res://Soldier.tscn" type="PackedScene" id=3]
 [ext_resource path="res://PresetDot.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://EnemyDirector.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
@@ -65,5 +66,7 @@ position = Vector2( 583.328, 799.385 )
 
 [node name="PresetDot7" parent="." instance=ExtResource( 4 )]
 position = Vector2( 379.656, 553.82 )
+
+[node name="EnemyDirector" parent="." instance=ExtResource( 6 )]
 
 [editable path="GUI"]

@@ -2,11 +2,11 @@ extends "res://Scripts/Buildings.gd"
 
 var food_gen = 0
 
-var buildname = "Village"
 
 func _ready():
 	temp_steel = "None"
 	temp_wood = "None"
+	buildname = "Village"
 	add_to_group("non_combat")
 
 func _on_Village_input_event(_viewport, _event, _shape_idx):
@@ -21,6 +21,7 @@ func _on_Village_body_entered(body):
 		body.queue_free()
 	elif body is enemy_class:
 		body.attack()
+		body.attacking = self
 
 func foodGeneration():
 	if soldiers_held > 0:

@@ -7,18 +7,19 @@ signal info_pass(buildname, soldierheld, temp_steel, temp_wood)
 var soldiers_held = 0
 var temp_steel = 0
 var temp_wood = 0
+var destroyed = false
+var buildname
 
 func _ready():
 	Resources.buildings_list.append(self)
-	for x in Resources.buildings_list: #I have no idea why but putting this for-loop anywhere wouldn't work.
-		x.connect("info_pass", get_parent().get_node("GUI"), "info_panel")
-	pass # Replace with function body.
-
+	
+func _process(delta):
+	$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
+		
 func position_pass():
 	if !Utils.selected:
 		$BuildingSprite.use_parent_material = true
 		Utils.selected = self
-		emit_signal("info_pass", Utils.selected.buildname, Utils.selected.soldiers_held, Utils.selected.temp_steel, Utils.selected.temp_wood)
 		World.from_building = position
 
 	elif Utils.selected == self:
@@ -31,5 +32,4 @@ func position_pass():
 		World.to_building = position
 		if Utils.selected.soldiers_held > 0:
 			Utils.selected.soldiers_held -= 1
-			Utils.selected.get_node("SoldierAmount").set_text("Soldiers: " + str(Utils.selected.soldiers_held))
-			World.pass_pos()
+			World.pass_pos(Utils.selected)

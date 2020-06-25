@@ -23,6 +23,7 @@ func createBuilding():
 		tower.position = self.position
 		#print("Spawn_Tower Position: " + String(tower.position))
 		World.tower_amount -= 1
+		Utils.buildingList.append(tower)
 		self.queue_free()
 
 	elif ZaWarudo == 2 && World.village_amount > 0:
@@ -31,6 +32,7 @@ func createBuilding():
 		village.position = self.position
 		#print("Spawn_Village Position: " + String(village.position))
 		World.village_amount -= 1
+		Utils.buildingList.append(village)
 		self.queue_free()
 	
 	elif World.tower_amount == 0 and World.village_amount == 0: #Checks if the buildings already reached 0 then deletes it, otherwise we'll generate infinite amounts of buildings and get a Stack Overflow error

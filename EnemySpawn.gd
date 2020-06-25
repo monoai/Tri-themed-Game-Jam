@@ -23,14 +23,9 @@ func prioritize_building():
 			actual_max = x
 	return actual_max
 
-func _on_WaveTimer_timeout():
-	var firstBlood = prioritize_building().position
-	while World.enemy_amount > 0:
-		var enemy = Enemy.instance()
-		add_child(enemy)
-		position = self.position
-		World.enemy_amount -= 1
-		enemy.move(Vector2.ZERO, firstBlood - position)
-		$SpawnTimer.start()
-		yield($SpawnTimer, "timeout")
-	pass # Replace with function body.
+func send(target):
+	var enemy = Enemy.instance()
+	get_parent().get_parent().add_child(enemy)
+	enemy.move(position, target)
+	
+	
