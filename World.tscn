@@ -13,9 +13,6 @@ Soldier = ExtResource( 3 )
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]
 
-[node name="Tree" parent="GUI/UpgradePanel/VBoxContainer" index="1"]
-margin_bottom = 105.0
-
 [node name="WorldFrom" type="Label" parent="."]
 margin_left = 171.239
 margin_top = 573.403

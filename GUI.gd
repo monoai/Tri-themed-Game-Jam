@@ -24,5 +24,8 @@ func info_panel(buildname, soldiers_held, temp_steel, temp_wood):
 	pass
 
 func _on_Upgrades_toggled(button_pressed):
-	
+	if button_pressed:
+		$UpgradePanel.show()
+	else:
+		$UpgradePanel.hide()
 	pass # Replace with function body.

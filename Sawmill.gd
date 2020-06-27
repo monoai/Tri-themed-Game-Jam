@@ -1,7 +1,7 @@
 extends Node2D
 
 var wood_gen = 0
-var soldiers_held = get_parent().soldiers_held
+onready var soldiers_held = get_parent().soldiers_held
 
 func _ready():
 	#print("yes is print")
