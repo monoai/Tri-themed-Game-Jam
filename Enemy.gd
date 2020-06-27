@@ -17,11 +17,12 @@ func move(fromPos, toPos):
 	add_to_group("enemy")
 	var distance = (toPos - fromPos).length()
 	if distance > 900:
-		$AnimatedSprite.play("walk")
-		print("Distance over 900")
-		newPos = Utils.buildingList[randi()%6].position
-		toPos = newPos
-		move(fromPos, toPos)
+#		$AnimatedSprite.play("walk")
+#		print("Distance over 900")
+#		newPos = Utils.buildingList[randi()%6].position
+#		toPos = newPos
+#		move(fromPos, toPos)
+		pass
 	else:
 		var direction = (toPos - fromPos).normalized()
 		var motion = direction * SPEED

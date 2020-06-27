@@ -12,7 +12,7 @@ var SPAWN_RAD = 200
 func _ready():
 	buildname = "Tower"
 	$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
-	add_to_group("tower") #Groups thing that I'm testing out
+	add_to_group("tower")
 	pass
 
 func _process(_delta):

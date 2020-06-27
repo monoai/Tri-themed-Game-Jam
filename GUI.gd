@@ -9,7 +9,6 @@ func _process(_delta):
 	else:
 		info_panel("None", 0, 0, 0)
 
-		
 func info_panel(buildname, soldiers_held, temp_steel, temp_wood):
 	$InfoPanel/GridContainer/BuildingName.set_text(buildname)
 	$InfoPanel/GridContainer/BuildingSoldier.set_text("Soldiers: " + str(soldiers_held))
@@ -23,3 +22,7 @@ func info_panel(buildname, soldiers_held, temp_steel, temp_wood):
 		$InfoPanel/GridContainer/BuildingSteel.set_text("Steel: " + str(temp_steel))
 		$InfoPanel/GridContainer/BuildingWood.set_text("Wood: " + str(temp_wood))
 	pass
+
+func _on_Upgrades_toggled(button_pressed):
+	
+	pass # Replace with function body.

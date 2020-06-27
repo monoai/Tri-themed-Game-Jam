@@ -10,7 +10,7 @@ shader_param/aura_width = 2.0
 shader_param/aura_color = Color( 0, 0.764706, 1, 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 59.6287, 37.6237 )
+extents = Vector2( 39.9786, 37.6237 )
 
 [node name="Fortress" type="Area2D"]
 material = SubResource( 1 )
@@ -33,7 +33,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 1 )
+position = Vector2( 0, 19 )
 shape = SubResource( 2 )
 [connection signal="body_entered" from="." to="." method="_on_Fortress_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_Fortress_input_event"]

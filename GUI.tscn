@@ -11,7 +11,7 @@ follow_viewport_enable = true
 script = ExtResource( 5 )
 
 [node name="ResourcePanel" type="Panel" parent="."]
-margin_right = 300.0
+margin_right = 200.0
 margin_bottom = 420.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -20,29 +20,29 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="ResourcePanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 10.0
-margin_bottom = -3.05176e-05
 custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SteelResource" type="HBoxContainer" parent="ResourcePanel/VBoxContainer"]
-margin_right = 300.0
+margin_right = 200.0
 margin_bottom = 50.0
-rect_min_size = Vector2( 300, 50 )
+rect_min_size = Vector2( 0, 50 )
 alignment = 1
 
 [node name="SteelIcon" type="TextureRect" parent="ResourcePanel/VBoxContainer/SteelResource"]
-margin_left = 103.0
-margin_right = 153.0
+margin_left = 53.0
+margin_right = 103.0
 margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 1 )
+stretch_mode = 1
 
 [node name="SteelCounter" type="Label" parent="ResourcePanel/VBoxContainer/SteelResource"]
-margin_left = 157.0
+margin_left = 107.0
 margin_top = 18.0
-margin_right = 197.0
+margin_right = 147.0
 margin_bottom = 32.0
 text = "Steel: "
 __meta__ = {
@@ -51,21 +51,23 @@ __meta__ = {
 
 [node name="WoodResource" type="HBoxContainer" parent="ResourcePanel/VBoxContainer"]
 margin_top = 60.0
-margin_right = 300.0
+margin_right = 200.0
 margin_bottom = 110.0
-rect_min_size = Vector2( 300, 50 )
+rect_min_size = Vector2( 0, 50 )
 alignment = 1
 
 [node name="WoodIcon" type="TextureRect" parent="ResourcePanel/VBoxContainer/WoodResource"]
-margin_left = 100.0
-margin_right = 150.0
+margin_left = 50.0
+margin_right = 100.0
 margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 3 )
+stretch_mode = 1
 
 [node name="WoodCounter" type="Label" parent="ResourcePanel/VBoxContainer/WoodResource"]
-margin_left = 154.0
+margin_left = 104.0
 margin_top = 18.0
-margin_right = 199.0
+margin_right = 149.0
 margin_bottom = 32.0
 text = "Wood: "
 __meta__ = {
@@ -74,21 +76,23 @@ __meta__ = {
 
 [node name="FoodResource" type="HBoxContainer" parent="ResourcePanel/VBoxContainer"]
 margin_top = 120.0
-margin_right = 300.0
+margin_right = 200.0
 margin_bottom = 170.0
-rect_min_size = Vector2( 300, 50 )
+rect_min_size = Vector2( 0, 50 )
 alignment = 1
 
 [node name="FoodIcon" type="TextureRect" parent="ResourcePanel/VBoxContainer/FoodResource"]
-margin_left = 103.0
-margin_right = 153.0
+margin_left = 53.0
+margin_right = 103.0
 margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 2 )
+stretch_mode = 1
 
 [node name="FoodCounter" type="Label" parent="ResourcePanel/VBoxContainer/FoodResource"]
-margin_left = 157.0
+margin_left = 107.0
 margin_top = 18.0
-margin_right = 196.0
+margin_right = 146.0
 margin_bottom = 32.0
 text = "Food: "
 __meta__ = {
@@ -97,21 +101,23 @@ __meta__ = {
 
 [node name="SoldierResource" type="HBoxContainer" parent="ResourcePanel/VBoxContainer"]
 margin_top = 180.0
-margin_right = 300.0
+margin_right = 200.0
 margin_bottom = 230.0
-rect_min_size = Vector2( 300, 50 )
+rect_min_size = Vector2( 0, 50 )
 alignment = 1
 
 [node name="SoldierIcon" type="TextureRect" parent="ResourcePanel/VBoxContainer/SoldierResource"]
-margin_left = 76.0
-margin_right = 126.0
+margin_left = 26.0
+margin_right = 76.0
 margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 4 )
+stretch_mode = 1
 
 [node name="TotalSoldier" type="Label" parent="ResourcePanel/VBoxContainer/SoldierResource"]
-margin_left = 130.0
+margin_left = 80.0
 margin_top = 18.0
-margin_right = 224.0
+margin_right = 174.0
 margin_bottom = 32.0
 text = "Total Soldiers: "
 __meta__ = {
@@ -120,23 +126,23 @@ __meta__ = {
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="ResourcePanel/VBoxContainer"]
 margin_top = 240.0
-margin_right = 300.0
+margin_right = 200.0
 margin_bottom = 290.0
-rect_min_size = Vector2( 300, 50 )
+rect_min_size = Vector2( 0, 50 )
 alignment = 1
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="ResourcePanel/VBoxContainer"]
 margin_top = 300.0
-margin_right = 300.0
+margin_right = 200.0
 margin_bottom = 350.0
-rect_min_size = Vector2( 300, 50 )
+rect_min_size = Vector2( 0, 50 )
 alignment = 1
 
 [node name="HBoxContainer8" type="HBoxContainer" parent="ResourcePanel/VBoxContainer"]
 margin_top = 360.0
-margin_right = 300.0
+margin_right = 200.0
 margin_bottom = 410.0
-rect_min_size = Vector2( 300, 50 )
+rect_min_size = Vector2( 0, 50 )
 alignment = 1
 
 [node name="InfoPanel" type="Panel" parent="."]
@@ -162,7 +168,7 @@ __meta__ = {
 
 [node name="BuildingIcon" type="TextureRect" parent="InfoPanel/GridContainer"]
 margin_right = 67.0
-margin_bottom = 50.0
+margin_bottom = 16.0
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -170,39 +176,39 @@ __meta__ = {
 
 [node name="BuildingName" type="Label" parent="InfoPanel/GridContainer"]
 margin_left = 77.0
-margin_top = 18.0
+margin_top = 1.0
 margin_right = 157.0
-margin_bottom = 32.0
+margin_bottom = 15.0
 text = "Tower Name"
 
 [node name="BuildingSoldier" type="Label" parent="InfoPanel/GridContainer"]
-margin_top = 60.0
+margin_top = 26.0
 margin_right = 67.0
-margin_bottom = 74.0
+margin_bottom = 40.0
 text = "Soldiers: 0"
 
 [node name="Empty" type="Control" parent="InfoPanel/GridContainer"]
 margin_left = 77.0
-margin_top = 60.0
+margin_top = 26.0
 margin_right = 157.0
-margin_bottom = 74.0
+margin_bottom = 40.0
 
 [node name="BuildingSteel" type="Label" parent="InfoPanel/GridContainer"]
-margin_top = 84.0
+margin_top = 50.0
 margin_right = 67.0
-margin_bottom = 98.0
+margin_bottom = 64.0
 text = "Steel: 0"
 
 [node name="Empty2" type="Control" parent="InfoPanel/GridContainer"]
 margin_left = 77.0
-margin_top = 84.0
+margin_top = 50.0
 margin_right = 157.0
-margin_bottom = 98.0
+margin_bottom = 64.0
 
 [node name="BuildingWood" type="Label" parent="InfoPanel/GridContainer"]
-margin_top = 108.0
+margin_top = 74.0
 margin_right = 67.0
-margin_bottom = 122.0
+margin_bottom = 88.0
 text = "Wood: 0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -215,37 +221,73 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = -100.0
 margin_top = -125.0
-margin_bottom = 125.0
+margin_bottom = 75.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ActionPanel"]
+anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/separation = 10
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -100.0
+margin_bottom = 100.0
+custom_constants/separation = 20
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Upgrades" type="Button" parent="ActionPanel/VBoxContainer"]
-margin_top = 10.0
+margin_top = 20.0
 margin_right = 100.0
-margin_bottom = 80.0
+margin_bottom = 90.0
 rect_min_size = Vector2( 100, 70 )
+toggle_mode = true
 text = "Upgreyds"
 
-[node name="Resource Priority" type="Button" parent="ActionPanel/VBoxContainer"]
-margin_top = 90.0
-margin_right = 100.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 100, 70 )
-text = "ResourcePrio"
-
 [node name="SoldierGen" type="Button" parent="ActionPanel/VBoxContainer"]
-margin_top = 170.0
+margin_top = 110.0
 margin_right = 100.0
-margin_bottom = 240.0
+margin_bottom = 180.0
 rect_min_size = Vector2( 100, 70 )
 text = "Give Food"
+
+[node name="UpgradePanel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -400.0
+margin_right = 400.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UpgradePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UpgradePanel/VBoxContainer"]
+margin_right = 800.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+alignment = 1
+
+[node name="Label" type="Label" parent="UpgradePanel/VBoxContainer/HBoxContainer"]
+margin_left = 302.0
+margin_top = 43.0
+margin_right = 498.0
+margin_bottom = 57.0
+text = "UPGRADES YEAAAAAAAAAAAH"
+
+[node name="Tree" type="Tree" parent="UpgradePanel/VBoxContainer"]
+margin_top = 104.0
+margin_right = 800.0
+margin_bottom = 105.0
+[connection signal="toggled" from="ActionPanel/VBoxContainer/Upgrades" to="." method="_on_Upgrades_toggled"]
