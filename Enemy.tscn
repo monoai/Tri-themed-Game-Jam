@@ -25,7 +25,9 @@ animations = [ {
 } ]
 
 [node name="Enemy" type="RigidBody2D"]
-collision_layer = 0
+input_pickable = true
+collision_layer = 2
+mass = 99.0
 gravity_scale = 0.0
 script = ExtResource( 1 )
 
@@ -37,4 +39,5 @@ modulate = Color( 0.960784, 0.905882, 0.905882, 1 )
 position = Vector2( -0.21463, 0 )
 frames = SubResource( 2 )
 animation = "walk"
+[connection signal="input_event" from="." to="." method="_on_Enemy_input_event"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

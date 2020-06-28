@@ -14,8 +14,6 @@ var enemy_amount = max_enemy[wave]
 var from_building = Vector2(0,0)
 var to_building = Vector2(0,0)
 
-const SPEED = 200
-
 func _ready():
 	#Utils.buildingList.append(get_node("Fortress"))
 	pass

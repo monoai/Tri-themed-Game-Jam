@@ -1,18 +1,19 @@
 extends Node2D
 
 var wood_gen = 0
-onready var soldiers_held = get_parent().soldiers_held
 
 func _ready():
 	#print("yes is print")
 	#print("subSoldheld: " + str(get_parent().soldiers_held))
-	wood_gen = soldiers_held
 	add_to_group("sawmill")
 	pass
 
 func woodGeneration():
+	var soldiers_held = get_parent().soldiers_held
+	wood_gen = soldiers_held
 	if soldiers_held > 0:
-		get_parent().temp_wood += wood_gen
+		var formula = (wood_gen * (Resources.wood_upgrade))
+		get_parent().temp_wood += formula
 		#print("Sawmill success")
 	pass
 

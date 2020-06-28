@@ -2,6 +2,7 @@ extends "res://Scripts/Buildings.gd"
 
 export(PackedScene) var Sawmill
 export(PackedScene) var Mine
+export(PackedScene) var Arrow
 
 var rng = RandomNumberGenerator.new()
 
@@ -62,8 +63,15 @@ func _on_Tower_body_entered(body):
 		
 	pass # Replace with function body.
 
-func _on_Tower_mouse_entered():
-		pass # Replace with function body.
-
-func _on_Tower_mouse_exited():
+func _on_EnemyDetect_body_entered(body):
+	if body is enemy_class:
+		var arrow = Arrow.instance()
+		arrow.position = get_parent().position + Vector2(0,-50)
+		self.call_deferred("add_child", arrow, true)
+		var SPEED = 20
+		var direction = (body.position - arrow.position).normalized()
+		var motion = direction * SPEED
+		arrow.rotation = atan2(direction.y,direction.x)
+		arrow.linear_velocity += motion + Vector2(0,-80)
+		pass
 	pass # Replace with function body.

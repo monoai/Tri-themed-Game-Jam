@@ -29,3 +29,9 @@ func _on_Upgrades_toggled(button_pressed):
 	else:
 		$UpgradePanel.hide()
 	pass # Replace with function body.
+
+
+func _on_Button_pressed():
+	Resources.wood += 100
+	Resources.steel += 100
+	pass # Replace with function body.

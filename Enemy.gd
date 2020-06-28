@@ -2,6 +2,8 @@ extends RigidBody2D
 
 class_name enemy_class
 
+var health = 10
+
 const SPEED = 200
 
 var loop_ctr = 0
@@ -11,6 +13,18 @@ export var newPos = Vector2()
 
 func _ready():
 	pass
+
+func _process(_delta):
+	if health <= 0:
+		print("Should be fucking dead")
+		self.queue_free()
+	pass
+
+func _on_Enemy_input_event(_viewport, _event, _shape_idx):
+	if Input.is_action_pressed("left_click"): #Could be written better daw, but fuck it, it works.
+		health -= 1
+		print("Get bonked")
+	pass # Replace with function body.
 
 func move(fromPos, toPos):
 	position = fromPos
