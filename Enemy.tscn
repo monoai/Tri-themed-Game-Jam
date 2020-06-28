@@ -11,8 +11,8 @@
 [ext_resource path="res://Assets/LifeBarProgress.png" type="Texture" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 11.8684
-height = 11.3904
+radius = 19.3708
+height = 11.0432
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {

@@ -9,8 +9,8 @@ func _ready():
 	buildname = "Village"
 	add_to_group("non_combat")
 
-func _on_Village_input_event(_viewport, _event, _shape_idx):
-	if Input.is_action_pressed("left_click"): #Could be written better daw, but fuck it, it works.
+func _on_Village_input_event(_viewport, event, _shape_idx):
+	if event.is_action_pressed("left_click"):
 		position_pass()
 
 func _on_Village_body_entered(body):

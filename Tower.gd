@@ -20,8 +20,8 @@ func _process(_delta):
 	$SteelAmount.set_text("Steel: " + str(temp_steel))
 	$WoodAmount.set_text("Wood: " + str(temp_wood))
 
-func _on_Tower_input_event(_viewport, _event, _shape_idx):
-	if Input.is_action_pressed("left_click"): #Could be written better daw, but fuck it, it works.
+func _on_Tower_input_event(_viewport, event, _shape_idx):
+	if event.is_action_pressed("left_click"):
 		position_pass()
 
 func _on_Tower_body_entered(body):

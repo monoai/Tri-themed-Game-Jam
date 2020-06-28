@@ -11,8 +11,8 @@ func _ready():
 func _process(_delta):
 	$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
 
-func _on_Fortress_input_event(_viewport, _event, _shape_idx):
-	if Input.is_action_pressed("left_click"): #Could be written better daw, but fuck it, it works.
+func _on_Fortress_input_event(_viewport, event, _shape_idx):
+	if event.is_action_pressed("left_click"):
 		position_pass()
 
 func _on_Fortress_body_entered(body):

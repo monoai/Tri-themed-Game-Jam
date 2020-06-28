@@ -5,11 +5,12 @@ func _ready():
 
 func _process(_delta):
 	if Utils.selected:
-		info_panel(Utils.selected.buildname, Utils.selected.soldiers_held, Utils.selected.temp_steel, Utils.selected.temp_wood)
+		info_panel(Utils.selected.get_node("BuildingSprite").get_texture(), Utils.selected.buildname, Utils.selected.soldiers_held, Utils.selected.temp_steel, Utils.selected.temp_wood)
 	else:
-		info_panel("None", 0, 0, 0)
+		info_panel(null, "None", 0, 0, 0)
 
-func info_panel(buildname, soldiers_held, temp_steel, temp_wood):
+func info_panel(buildsprite, buildname, soldiers_held, temp_steel, temp_wood):
+	$InfoPanel/GridContainer/BuildingIcon.set_texture(buildsprite)
 	$InfoPanel/GridContainer/BuildingName.set_text(buildname)
 	$InfoPanel/GridContainer/BuildingSoldier.set_text("Soldiers: " + str(soldiers_held))
 	if buildname == "Fortress":

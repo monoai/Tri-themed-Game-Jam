@@ -9,3 +9,8 @@ func _on_Spir_body_entered(body):
 		print("arrow bonk")
 		self.queue_free()
 	pass # Replace with function body.
+
+
+func _on_AutoDelete_timeout():
+	self.queue_free()
+	pass # Replace with function body.
