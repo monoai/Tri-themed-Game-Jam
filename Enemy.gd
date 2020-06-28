@@ -2,7 +2,7 @@ extends RigidBody2D
 
 class_name enemy_class
 
-var health = 10
+var health = 10 setget health_reduced
 
 const SPEED = 200
 
@@ -11,7 +11,10 @@ var destination
 var attacking = null
 export var newPos = Vector2()
 
+signal hit(new_hp)
+
 func _ready():
+	connect("hit", get_node("Life"), "update_health")
 	pass
 
 func _process(_delta):
@@ -24,7 +27,11 @@ func _on_Enemy_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_pressed("left_click"): #Could be written better daw, but fuck it, it works.
 		health -= 1
 		print("Get bonked")
+		emit_signal("hit", health)
 	pass # Replace with function body.
+
+func health_reduced(new_hp):
+	emit_signal("hit", new_hp)
 
 func move(fromPos, toPos):
 	position = fromPos
