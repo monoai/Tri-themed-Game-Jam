@@ -4,8 +4,8 @@ export(PackedScene) var Soldier
 
 var max_tower = [4,5]
 var max_village = [2,6]
-var max_enemy = [15]
-var wave = 0
+var max_enemy = [15,16]
+var wave = Resources.current_wave
 
 var tower_amount = max_tower[wave]
 var village_amount = max_village[wave]

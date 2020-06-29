@@ -2,6 +2,7 @@ extends Node
 
 onready var World = get_node("/root/World")
 
+var current_wave = 0
 var total_soldier = 10
 var wood = 40
 var steel = 20

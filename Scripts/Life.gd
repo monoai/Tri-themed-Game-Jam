@@ -8,4 +8,5 @@ func _ready():
 func update_health(new_hp):
 	$VBoxContainer/HBoxContainer/hp_label.text = str(new_hp)
 	$VBoxContainer/HBoxContainer/bar.value = new_hp
+	return 0
 	pass
