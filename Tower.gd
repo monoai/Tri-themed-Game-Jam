@@ -9,9 +9,12 @@ var rng = RandomNumberGenerator.new()
 var sub_buildings_max = 2
 
 var SPAWN_RAD = 200
+var enemies = []
+var damage_val
 
 func _ready():
 	buildname = "Tower"
+	damage_val = 1
 	$SoldierAmount.set_text("Soldiers: " + str(soldiers_held))
 	add_to_group("tower")
 	pass
@@ -65,13 +68,24 @@ func _on_Tower_body_entered(body):
 
 func _on_EnemyDetect_body_entered(body):
 	if body is enemy_class:
+		enemies.append(body)
+
+
+
+
+func _on_ShootTimer_timeout():
+	if len(enemies) > 0:
 		var arrow = Arrow.instance()
-		arrow.position = get_parent().position + Vector2(0,-50)
+		arrow.target = enemies[0]
+		arrow.position = Vector2(0,-50)
+		arrow.damage = damage_val
+		var SPEED = 200
+		var direction = ((enemies[0].position-position) - arrow.position).normalized()
+		arrow.motion = direction * SPEED
+		arrow.get_node("Sprite").rotation = atan2(direction.y,direction.x) + PI/2
 		self.call_deferred("add_child", arrow, true)
-		var SPEED = 20
-		var direction = (body.position - arrow.position).normalized()
-		var motion = direction * SPEED
-		arrow.rotation = atan2(direction.y,direction.x)
-		arrow.linear_velocity += motion + Vector2(0,-80)
-		pass
-	pass # Replace with function body.
+
+
+func _on_EnemyDetect_body_exited(body):
+	if body is enemy_class:
+		enemies.erase(body)

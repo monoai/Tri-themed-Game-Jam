@@ -13,6 +13,18 @@ Soldier = ExtResource( 3 )
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]
 
+[node name="ResourcePanel" parent="GUI" index="0"]
+visible = false
+
+[node name="InfoPanel" parent="GUI" index="1"]
+visible = false
+
+[node name="ActionPanel" parent="GUI" index="2"]
+visible = false
+
+[node name="UpgradePanel" parent="GUI" index="3"]
+visible = false
+
 [node name="WorldFrom" type="Label" parent="."]
 margin_left = 171.239
 margin_top = 573.403

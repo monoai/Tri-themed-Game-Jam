@@ -72,6 +72,12 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetect"]
 position = Vector2( 0, -25 )
 shape = SubResource( 3 )
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
 [connection signal="body_entered" from="." to="." method="_on_Tower_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_Tower_input_event"]
 [connection signal="body_entered" from="EnemyDetect" to="." method="_on_EnemyDetect_body_entered"]
+[connection signal="body_exited" from="EnemyDetect" to="." method="_on_EnemyDetect_body_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]

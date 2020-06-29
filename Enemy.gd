@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 class_name enemy_class
 
@@ -9,6 +9,7 @@ const SPEED = 200
 var loop_ctr = 0
 var destination
 var attacking = null
+var movement = Vector2.ZERO
 export var newPos = Vector2()
 
 signal hit(new_hp)
@@ -17,7 +18,8 @@ func _ready():
 	self.connect("hit", get_node("Life"), "update_health")
 	pass
 
-func _process(_delta):
+func _process(delta):
+	position += movement * delta
 	if health <= 0:
 		print("Should be fucking dead")
 		self.queue_free()
@@ -37,20 +39,21 @@ func move(fromPos, toPos):
 	position = fromPos
 	add_to_group("enemy")
 	var distance = (toPos - fromPos).length()
-	if distance > 900:
+	if distance > 1500:
 #		$AnimatedSprite.play("walk")
 #		print("Distance over 900")
 #		newPos = Utils.buildingList[randi()%6].position
 #		toPos = newPos
 #		move(fromPos, toPos)
-		pass
+		return 0
 	else:
 		var direction = (toPos - fromPos).normalized()
 		var motion = direction * SPEED
-		linear_velocity += motion
+		movement = motion
+		return 1
 
 func attack():
-	linear_velocity = Vector2.ZERO
+	movement = Vector2.ZERO
 	$AnimatedSprite.play("attack")
 
 func change_target():
@@ -66,5 +69,14 @@ func _on_AnimatedSprite_animation_finished():
 		if attacking and attacking.soldiers_held > 0:
 			attacking.soldiers_held -= 1
 		else:
-			move(position, change_target())
+			var ctr = 0 #failsafe if targetting cannot find a nearby building
+			while move(position, change_target()) == 0 and ctr < 10:
+				ctr += 1
 	$AnimatedSprite.play("attack")
+
+
+func _on_Hitbox_body_entered(body):
+	if body is arrow:
+		health -= body.damage
+		emit_signal("hit", health)
+		body.queue_free()
