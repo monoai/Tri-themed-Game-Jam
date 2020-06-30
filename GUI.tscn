@@ -581,6 +581,7 @@ custom_fonts/font = ExtResource( 10 )
 text = "Upgrade!"
 
 [node name="Debug" type="Button" parent="."]
+visible = false
 margin_left = 1634.16
 margin_top = 246.925
 margin_right = 1864.16
