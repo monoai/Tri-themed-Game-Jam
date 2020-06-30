@@ -19,7 +19,7 @@ func _on_Village_body_entered(body):
 		soldiers_held += 1
 		$SoldierAmount.set_text("Food Soldiers: " + str(soldiers_held))
 		body.queue_free()
-	elif body is enemy_class:
+	elif body.is_in_group("enemy"):
 		body.attack()
 		body.attacking = self
 

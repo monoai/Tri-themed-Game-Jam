@@ -44,7 +44,7 @@ func _on_Tower_body_entered(body):
 				var deg = rng.randf()*360
 				var radiusPos =  Vector2(rad*cos(deg),rad*sin(deg))
 				
-				print(chance)
+				#print(chance)
 				if chance == 1:
 					var sawmill = Sawmill.instance()
 					self.add_child(sawmill, true)
@@ -60,21 +60,19 @@ func _on_Tower_body_entered(body):
 				pass
 		else:
 			pass
-	elif body is enemy_class:
+	elif body.is_in_group("enemy"):
 		body.attack()
 		body.attacking = self
 		
 	pass # Replace with function body.
 
 func _on_EnemyDetect_body_entered(body):
-	if body is enemy_class:
+	if body.is_in_group("enemy"):
 		enemies.append(body)
 
 
-
-
 func _on_ShootTimer_timeout():
-	if len(enemies) > 0:
+	if len(enemies) > 0 and soldiers_held > 0:
 		var arrow = Arrow.instance()
 		arrow.target = enemies[0]
 		arrow.position = Vector2(0,-50)
@@ -87,5 +85,5 @@ func _on_ShootTimer_timeout():
 
 
 func _on_EnemyDetect_body_exited(body):
-	if body is enemy_class:
+	if body.is_in_group("enemy"):
 		enemies.erase(body)

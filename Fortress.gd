@@ -22,6 +22,6 @@ func _on_Fortress_body_entered(body):
 		Resources.wood += body.wood_held
 		soldiers_held += 1
 		body.queue_free()
-	elif body is enemy_class:
+	elif body.is_in_group("enemy"):
 		body.attack()
 		body.attacking = self

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Fortress.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World.gd" type="Script" id=2]
@@ -9,10 +9,21 @@
 [ext_resource path="res://Assets/Background/Normal.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Background/Wall.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/EnemyReminder.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Background/Bloodier.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Background/Bloody.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Fonts/SoulMarker_Light.otf" type="DynamicFontData" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 12 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
 Soldier = ExtResource( 3 )
+Bloody = ExtResource( 11 )
+Bloodier = ExtResource( 10 )
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]
 
@@ -22,65 +33,51 @@ visible = false
 [node name="VBoxContainer" parent="GUI/UpgradePanel/ScrollContainer" index="0"]
 margin_right = 776.0
 
-[node name="WorldFrom" type="Label" parent="."]
-margin_left = 171.239
-margin_top = 573.403
-margin_right = 212.239
-margin_bottom = 587.403
-text = "From: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="WorldTo" type="Label" parent="."]
-margin_left = 171.239
-margin_top = 599.747
-margin_right = 211.239
-margin_bottom = 613.747
-text = "To: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="WorldSuccess" type="Label" parent="."]
-margin_left = 172.436
-margin_top = 629.684
-margin_right = 223.436
-margin_bottom = 643.684
-text = "Success"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Fortress" parent="." instance=ExtResource( 1 )]
 position = Vector2( 922.38, 559.236 )
 
 [node name="PresetDot" parent="." instance=ExtResource( 4 )]
-position = Vector2( 483.848, 251.82 )
+position = Vector2( 710.316, 321.555 )
 
 [node name="PresetDot2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 868.601, 185.59 )
+position = Vector2( 984.909, 312.835 )
 
 [node name="PresetDot3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1265.03, 266.114 )
+position = Vector2( 1153.18, 428.151 )
 
 [node name="PresetDot4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1420.41, 584.411 )
+position = Vector2( 1192.68, 622.883 )
 
 [node name="PresetDot5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1079.77, 853.667 )
+position = Vector2( 1073.28, 752.341 )
 
 [node name="PresetDot6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 583.328, 799.385 )
+position = Vector2( 773.028, 751.867 )
 
 [node name="PresetDot7" parent="." instance=ExtResource( 4 )]
-position = Vector2( 379.656, 553.82 )
+position = Vector2( 631.418, 546.875 )
+
+[node name="PresetDot8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 532.911, 721.449 )
+
+[node name="PresetDot9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 484.814, 359.763 )
+
+[node name="PresetDot10" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1286.68, 286.944 )
+
+[node name="PresetDot11" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1372.58, 643.34 )
+
+[node name="PresetDot12" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1387.41, 444.423 )
 
 [node name="EnemyReminder" type="Label" parent="."]
-margin_left = 783.69
-margin_top = 376.327
-margin_right = 943.69
-margin_bottom = 390.327
+margin_left = 793.092
+margin_top = 186.72
+margin_right = 1065.09
+margin_bottom = 223.72
+custom_fonts/font = SubResource( 1 )
 text = "Enemies will spawn in: "
 script = ExtResource( 9 )
 __meta__ = {

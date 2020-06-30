@@ -36,4 +36,5 @@ func _on_Button_pressed():
 	Resources.wood += 100
 	Resources.steel += 100
 	Resources.food += 100
+	Resources.kill_count += 10
 	pass # Replace with function body.

@@ -25,5 +25,10 @@ position = Vector2( -13.9475, 532.794 )
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="GraceTimer" type="Timer" parent="Timers"]
+wait_time = 20.0
+one_shot = true
 [connection signal="timeout" from="Timers/SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="Timers/WaveTimer" to="." method="_on_WaveTimer_timeout"]
+[connection signal="timeout" from="Timers/GraceTimer" to="." method="_on_GraceTimer_timeout"]

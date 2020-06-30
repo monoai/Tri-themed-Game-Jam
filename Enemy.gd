@@ -2,9 +2,8 @@ extends KinematicBody2D
 
 class_name enemy_class
 
-var health = 10 setget health_reduced
-
-const SPEED = 200
+var health = 10
+var SPEED = 200
 
 var loop_ctr = 0
 var destination
@@ -21,17 +20,16 @@ func _ready():
 func _process(delta):
 	position += movement * delta
 	if health <= 0:
-		print("Should be fucking dead")
+		Resources.kill_count += 1
+		print("Enemy dead")
 		self.queue_free()
 	pass
 
-func _on_Enemy_input_event(_viewport, event, _shape_idx):
-	if event.is_action_pressed("left_click"): 
-		var formula = 1 + (0.50 * Resources.click_upgrade)
-		health -= formula
-		print("Get bonked")
-		emit_signal("hit", health)
-	pass # Replace with function body.
+func click_reduce():
+	var formula = 1 + (0.50 * Resources.click_upgrade)
+	health -= formula
+	print("Enemy clicked")
+	emit_signal("hit", health)
 
 func health_reduced(new_hp):
 	emit_signal("hit", new_hp)
@@ -59,25 +57,9 @@ func attack():
 
 func change_target():
 	$AnimatedSprite.play("walk")
-	return Utils.buildingList[randi()%6].position
-
-func _on_AnimatedSprite_animation_finished():
-	loop_ctr += 1
-	if loop_ctr == 3:
-		#attack the building
-		print("building attacked")
-		loop_ctr = 0
-		if attacking and attacking.soldiers_held > 0:
-			attacking.soldiers_held -= 1
-		else:
-			var ctr = 0 #failsafe if targetting cannot find a nearby building
-			while move(position, change_target()) == 0 and ctr < 10:
-				ctr += 1
-	$AnimatedSprite.play("attack")
-
-
-func _on_Hitbox_body_entered(body):
-	if body is arrow:
-		health -= body.damage
-		emit_signal("hit", health)
-		body.queue_free()
+	if Resources.current_wave == 0:
+		return Utils.buildingList[randi()%6].position
+	elif Resources.current_wave == 1:
+		return Utils.buildingList[randi()%9].position
+	elif Resources.current_wave == 2:
+		return Utils.buildingList[randi()%12].position

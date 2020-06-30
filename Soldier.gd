@@ -13,7 +13,7 @@ func _ready():
 
 func move(fromPos, toPos):
 	var formula = SPEED * Resources.soldier_speedup
-	print("Soldier formula: " + str(formula))
+	#print("Soldier formula: " + str(formula))
 	position = fromPos
 	add_to_group("soldier")
 	var direction = (toPos - fromPos).normalized()

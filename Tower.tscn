@@ -38,6 +38,7 @@ position = Vector2( 1.52588e-05, -24.4497 )
 shape = SubResource( 2 )
 
 [node name="SoldierAmount" type="Label" parent="."]
+visible = false
 margin_left = 29.0
 margin_top = -43.0
 margin_right = 111.0
@@ -48,6 +49,7 @@ __meta__ = {
 }
 
 [node name="SteelAmount" type="Label" parent="."]
+visible = false
 margin_left = 29.731
 margin_top = -85.7194
 margin_right = 77.731
@@ -58,6 +60,7 @@ __meta__ = {
 }
 
 [node name="WoodAmount" type="Label" parent="."]
+visible = false
 margin_left = 30.7016
 margin_top = -70.5133
 margin_right = 83.7016
