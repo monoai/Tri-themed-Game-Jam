@@ -8,6 +8,7 @@ onready var World = get_node("/root/World/")
 var rng = RandomNumberGenerator.new()
 
 func _ready():
+	rng.randomize()
 	createBuilding()
 	pass
 	

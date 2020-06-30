@@ -24,7 +24,7 @@ func _process(_delta):
 	$GUI/ResourcePanel/VBoxContainer/WoodResource/WoodCounter.set_text("Wood: " + str(Resources.wood))
 	$GUI/ResourcePanel/VBoxContainer/SteelResource/SteelCounter.set_text("Steel: " + str(Resources.steel))
 	$GUI/ResourcePanel/VBoxContainer/FoodResource/FoodCounter.set_text("Food: " + str(Resources.food))
-	$GUI/ResourcePanel/VBoxContainer/SoldierResource/TotalSoldier.set_text("Total Soldier: " + str($Fortress.soldiers_held))
+	$GUI/ResourcePanel/VBoxContainer/SoldierResource/TotalSoldier.set_text("Soldiers: " + str($Fortress.soldiers_held))
 	pass
 
 func pass_pos(source):
@@ -50,6 +50,7 @@ func soldier_move(fromPos, toPos, source):
 
 func _on_SoldierGen_pressed():
 	if Resources.food >= 20:
-		$Fortress.soldiers_held += 1
+		var formula = 1 + (0.25 * Resources.soldier_produce)
+		$Fortress.soldiers_held += formula
 		Resources.food -= 20
 	pass # Replace with function body.

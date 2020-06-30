@@ -11,6 +11,8 @@ var food = 0
 var wood_upgrade = 1
 var steel_upgrade = 1
 var soldier_speedup = 1
+var soldier_produce = 0
+var click_upgrade = 0
 
 var buildings_list = []
 

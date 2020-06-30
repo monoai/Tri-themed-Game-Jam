@@ -14,12 +14,12 @@ func _on_Button_pressed():
 		print("Success")
 		Resources.steel -= steelRequirement
 		Resources.wood -= woodRequirement
-		Resources.wood_upgrade += 1
+		Resources.steel_upgrade += 1
 		upgradeAmount += 1
 		geometric += 1
 		steelRequirement = steelRequirement * geometric
 		woodRequirement = woodRequirement * geometric
-		$Label.set_text("Adds x%d to Wood Production. " %upgradeAmount + str("(%d Steel, ") %steelRequirement + str("%d Wood)") %woodRequirement)
+		$Label.set_text("Adds x%d to Steel Production. " %upgradeAmount + str("(%d Steel, ") %steelRequirement + str("%d Wood)") %woodRequirement)
 	else:
 		print("Failed successfully")
 	pass # Replace with function body.

@@ -27,7 +27,8 @@ func _process(delta):
 
 func _on_Enemy_input_event(_viewport, event, _shape_idx):
 	if event.is_action_pressed("left_click"): 
-		health -= 1
+		var formula = 1 + (0.50 * Resources.click_upgrade)
+		health -= formula
 		print("Get bonked")
 		emit_signal("hit", health)
 	pass # Replace with function body.

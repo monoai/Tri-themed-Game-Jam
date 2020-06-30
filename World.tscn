@@ -19,6 +19,9 @@ Soldier = ExtResource( 3 )
 [node name="UpgradePanel" parent="GUI" index="3"]
 visible = false
 
+[node name="VBoxContainer" parent="GUI/UpgradePanel/ScrollContainer" index="0"]
+margin_right = 776.0
+
 [node name="WorldFrom" type="Label" parent="."]
 margin_left = 171.239
 margin_top = 573.403
