@@ -1,6 +1,5 @@
 extends Node2D
 
-export(PackedScene) var Enemy
 export(PackedScene) var SlowEnemy
 export(PackedScene) var NormalEnemy
 export(PackedScene) var FastEnemy

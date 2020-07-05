@@ -6,73 +6,72 @@
 [ext_resource path="res://Assets/UI/LifeBarUnder.png" type="Texture" id=4]
 [ext_resource path="res://MiniBoss.gd" type="Script" id=5]
 
-
-[sub_resource type="CapsuleShape2D" id=48]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 14.018
 height = 2.78835
 
-[sub_resource type="AtlasTexture" id=51]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=52]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=53]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=54]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
 region = Rect2( 32, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=55]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 64, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=56]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
 region = Rect2( 32, 64, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=57]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=58]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=59]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=60]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
 region = Rect2( 32, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=61]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 64, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=62]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
 region = Rect2( 32, 64, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=49]
+[sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ) ],
-"loop": true,
-"name": "attack",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=50]
+[sub_resource type="CapsuleShape2D" id=15]
 radius = 14.1622
 height = 2.35212
 
@@ -82,13 +81,16 @@ collision_layer = 2
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 48 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 49 )
+frames = SubResource( 14 )
 animation = "walk"
+frame = 4
+playing = true
 
 [node name="Life" type="PanelContainer" parent="."]
+visible = false
 margin_left = -119.629
 margin_top = 42.1122
 margin_right = 120.371
@@ -106,18 +108,17 @@ margin_bottom = 37.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Life/VBoxContainer"]
 margin_right = 226.0
-margin_bottom = 30.0
+margin_bottom = 15.0
 
 [node name="hp_label" type="Label" parent="Life/VBoxContainer/HBoxContainer"]
-margin_top = 8.0
 margin_right = 22.0
-margin_bottom = 22.0
+margin_bottom = 14.0
 text = "HP:"
 
 [node name="bar" type="TextureProgress" parent="Life/VBoxContainer/HBoxContainer"]
 margin_left = 26.0
-margin_right = 226.0
-margin_bottom = 30.0
+margin_right = 126.0
+margin_bottom = 15.0
 value = 50.0
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 3 )
@@ -126,7 +127,9 @@ texture_progress = ExtResource( 3 )
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource( 50 )
+shape = SubResource( 15 )
 [connection signal="input_event" from="." to="." method="_on_NormalEnemy_input_event"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="mouse_entered" from="Hitbox" to="." method="_on_Hitbox_mouse_entered"]
+[connection signal="mouse_exited" from="Hitbox" to="." method="_on_Hitbox_mouse_exited"]

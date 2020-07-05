@@ -1,7 +1,5 @@
 extends Node
 
-onready var World = get_node("/root/World")
-
 var current_wave = 0
 var horde_done = 0
 var total_soldier = 10
@@ -26,7 +24,4 @@ func _ready():
 	soldier_speedup = 1
 	soldier_produce = 0
 	click_upgrade = 0
-	pass
-
-func _process(delta):
 	pass

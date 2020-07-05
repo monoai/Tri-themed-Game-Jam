@@ -6,43 +6,42 @@
 [ext_resource path="res://Assets/Enemies/NormalMob.png" type="Texture" id=4]
 [ext_resource path="res://NormalEnemy.gd" type="Script" id=5]
 
-
-[sub_resource type="CapsuleShape2D" id=35]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 14.018
 height = 2.78835
 
-[sub_resource type="AtlasTexture" id=31]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=32]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 16, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=33]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=34]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 16, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=36]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 31 ), SubResource( 32 ) ],
-"loop": true,
-"name": "attack",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 33 ), SubResource( 34 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=37]
-radius = 14.1622
-height = 2.35212
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 29.4376
+height = 6.27867
 
 [node name="NormalEnemy" type="KinematicBody2D"]
 input_pickable = true
@@ -50,17 +49,21 @@ collision_layer = 2
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 35 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 36 )
+frames = SubResource( 6 )
 animation = "walk"
+playing = true
 
 [node name="Life" type="PanelContainer" parent="."]
-margin_left = -119.629
-margin_top = 42.1122
-margin_right = 120.371
-margin_bottom = 86.1122
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -69.9525
+margin_top = 21.8336
+margin_right = 70.0475
+margin_bottom = 50.8336
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -69,32 +72,34 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Life"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 233.0
-margin_bottom = 37.0
+margin_right = 133.0
+margin_bottom = 22.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Life/VBoxContainer"]
-margin_right = 226.0
-margin_bottom = 30.0
+margin_right = 126.0
+margin_bottom = 15.0
 
 [node name="hp_label" type="Label" parent="Life/VBoxContainer/HBoxContainer"]
-margin_top = 8.0
 margin_right = 22.0
-margin_bottom = 22.0
+margin_bottom = 14.0
 text = "HP:"
 
 [node name="bar" type="TextureProgress" parent="Life/VBoxContainer/HBoxContainer"]
 margin_left = 26.0
-margin_right = 226.0
-margin_bottom = 30.0
+margin_right = 126.0
+margin_bottom = 15.0
 value = 50.0
 texture_under = ExtResource( 3 )
+texture_over = ExtResource( 3 )
 texture_progress = ExtResource( 2 )
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource( 37 )
+shape = SubResource( 7 )
 [connection signal="input_event" from="." to="." method="_on_NormalEnemy_input_event"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="mouse_entered" from="Hitbox" to="." method="_on_Hitbox_mouse_entered"]
+[connection signal="mouse_exited" from="Hitbox" to="." method="_on_Hitbox_mouse_exited"]

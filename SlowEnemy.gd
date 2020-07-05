@@ -1,4 +1,4 @@
-extends "res://Enemy.gd"
+extends "res://Scripts/Enemy.gd"
 
 func _ready():
 	add_to_group("enemy")
@@ -13,7 +13,7 @@ func _on_NormalEnemy_input_event(_viewport, event, _shape_idx):
 
 func _on_AnimatedSprite_animation_finished():
 	loop_ctr += 1
-	if loop_ctr == 3:
+	if loop_ctr == 1:
 		#attack the building
 		#print("building attacked")
 		loop_ctr = 0
@@ -30,3 +30,11 @@ func _on_Hitbox_body_entered(body):
 		health -= body.damage
 		emit_signal("hit", health)
 		body.queue_free()
+
+func _on_Hitbox_mouse_entered():
+	$Life.show()
+	pass # Replace with function body.
+
+func _on_Hitbox_mouse_exited():
+	$Life.hide()
+	pass # Replace with function body.

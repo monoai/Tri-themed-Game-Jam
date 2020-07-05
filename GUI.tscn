@@ -15,11 +15,6 @@
 [ext_resource path="res://Scripts/Upgrades/PlayaSecond.gd" type="Script" id=13]
 [ext_resource path="res://button.gd" type="Script" id=14]
 
-
-
-
-
-
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=2]
