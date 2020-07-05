@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://EnemySpawn.tscn" type="PackedScene" id=1]
+[ext_resource path="res://EnemyDirector.gd" type="Script" id=2]
+
+[node name="EnemyDirector" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="EnemySpawn" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 1930.33, 532.794 )
+
+[node name="EnemySpawn2" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 881.481, -13.9475 )
+
+[node name="EnemySpawn3" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -13.9475, 532.794 )
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="Timers"]
+
+[node name="WaveTimer" type="Timer" parent="Timers"]
+wait_time = 45.0
+one_shot = true
+autostart = true
+
+[node name="GraceTimer" type="Timer" parent="Timers"]
+wait_time = 20.0
+one_shot = true
+[connection signal="timeout" from="Timers/SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="Timers/WaveTimer" to="." method="_on_WaveTimer_timeout"]
+[connection signal="timeout" from="Timers/GraceTimer" to="." method="_on_GraceTimer_timeout"]

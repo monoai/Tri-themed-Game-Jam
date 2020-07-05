@@ -1,0 +1,605 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Assets/UI/SteelIcon.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/FoodIcon.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/WoodIcon.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/SoldierIcon.png" type="Texture" id=4]
+[ext_resource path="res://GUI.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Upgrades/WorldFirst.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Upgrades/SoldierFirst.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Upgrades/PlayaFirst.gd" type="Script" id=8]
+[ext_resource path="res://Assets/UI/9slice panel.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Fonts/SoulLighTemplate.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Assets/Fonts/SoulLightHeader.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Scripts/Upgrades/SoldierSecond.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/Upgrades/PlayaSecond.gd" type="Script" id=13]
+[ext_resource path="res://button.gd" type="Script" id=14]
+
+
+
+
+
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[node name="GUI" type="CanvasLayer"]
+follow_viewport_enable = true
+script = ExtResource( 5 )
+
+[node name="ResourcePanel" type="Panel" parent="."]
+margin_right = 200.0
+margin_bottom = 420.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ResourcePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.429291
+margin_right = 0.429291
+texture = ExtResource( 9 )
+patch_margin_left = 14
+patch_margin_top = 18
+patch_margin_right = 14
+patch_margin_bottom = 15
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ResourcePanel"]
+anchor_left = 0.054
+anchor_top = 0.03
+anchor_right = 0.935
+anchor_bottom = 0.968
+margin_left = 0.2
+margin_top = 0.400001
+margin_bottom = 2.44
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SteelResource" type="HBoxContainer" parent="ResourcePanel/VBoxContainer"]
+margin_right = 176.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+alignment = 1
+
+[node name="SteelIcon" type="TextureRect" parent="ResourcePanel/VBoxContainer/SteelResource"]
+margin_left = 33.0
+margin_right = 83.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 1 )
+stretch_mode = 1
+
+[node name="SteelCounter" type="Label" parent="ResourcePanel/VBoxContainer/SteelResource"]
+margin_left = 87.0
+margin_top = 11.0
+margin_right = 142.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 10 )
+text = "Steel: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WoodResource" type="HBoxContainer" parent="ResourcePanel/VBoxContainer"]
+margin_top = 60.0
+margin_right = 176.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 0, 50 )
+alignment = 1
+
+[node name="WoodIcon" type="TextureRect" parent="ResourcePanel/VBoxContainer/WoodResource"]
+margin_left = 30.0
+margin_right = 80.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+
+[node name="WoodCounter" type="Label" parent="ResourcePanel/VBoxContainer/WoodResource"]
+margin_left = 84.0
+margin_top = 11.0
+margin_right = 146.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 10 )
+text = "Wood: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FoodResource" type="HBoxContainer" parent="ResourcePanel/VBoxContainer"]
+margin_top = 120.0
+margin_right = 176.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 0, 50 )
+alignment = 1
+
+[node name="FoodIcon" type="TextureRect" parent="ResourcePanel/VBoxContainer/FoodResource"]
+margin_left = 33.0
+margin_right = 83.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="FoodCounter" type="Label" parent="ResourcePanel/VBoxContainer/FoodResource"]
+margin_left = 87.0
+margin_top = 11.0
+margin_right = 142.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 10 )
+text = "Food: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoldierResource" type="HBoxContainer" parent="ResourcePanel/VBoxContainer"]
+margin_top = 180.0
+margin_right = 176.0
+margin_bottom = 230.0
+rect_min_size = Vector2( 0, 50 )
+alignment = 1
+
+[node name="SoldierIcon" type="TextureRect" parent="ResourcePanel/VBoxContainer/SoldierResource"]
+margin_left = 21.0
+margin_right = 71.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 4 )
+stretch_mode = 1
+
+[node name="TotalSoldier" type="Label" parent="ResourcePanel/VBoxContainer/SoldierResource"]
+margin_left = 75.0
+margin_top = 11.0
+margin_right = 154.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 10 )
+text = "Soldiers: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KillResource" type="HBoxContainer" parent="ResourcePanel/VBoxContainer"]
+margin_top = 240.0
+margin_right = 176.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 0, 50 )
+alignment = 1
+
+[node name="KillCounter" type="Label" parent="ResourcePanel/VBoxContainer/KillResource"]
+margin_left = 67.0
+margin_top = 11.0
+margin_right = 109.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 10 )
+text = "Kills: "
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="ResourcePanel/VBoxContainer"]
+margin_top = 300.0
+margin_right = 176.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 0, 50 )
+alignment = 1
+
+[node name="InfoPanel" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -557.0
+margin_top = -278.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="InfoPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+patch_margin_left = 14
+patch_margin_top = 18
+patch_margin_right = 14
+patch_margin_bottom = 15
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="InfoPanel"]
+anchor_left = 0.04
+anchor_top = 0.081
+anchor_right = 0.949
+anchor_bottom = 0.939
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuildingIcon" type="TextureRect" parent="InfoPanel/GridContainer"]
+margin_right = 90.0
+margin_bottom = 37.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuildingName" type="Label" parent="InfoPanel/GridContainer"]
+margin_left = 100.0
+margin_right = 259.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 11 )
+text = "Tower Name"
+
+[node name="BuildingSoldier" type="Label" parent="InfoPanel/GridContainer"]
+margin_top = 47.0
+margin_right = 90.0
+margin_bottom = 74.0
+custom_fonts/font = ExtResource( 10 )
+text = "Soldiers: 0"
+
+[node name="Empty" type="Control" parent="InfoPanel/GridContainer"]
+margin_left = 100.0
+margin_top = 47.0
+margin_right = 259.0
+margin_bottom = 74.0
+
+[node name="BuildingSteel" type="Label" parent="InfoPanel/GridContainer"]
+margin_top = 84.0
+margin_right = 90.0
+margin_bottom = 111.0
+custom_fonts/font = ExtResource( 10 )
+text = "Steel: 0"
+
+[node name="Empty2" type="Control" parent="InfoPanel/GridContainer"]
+margin_left = 100.0
+margin_top = 84.0
+margin_right = 259.0
+margin_bottom = 111.0
+
+[node name="BuildingWood" type="Label" parent="InfoPanel/GridContainer"]
+margin_top = 121.0
+margin_right = 90.0
+margin_bottom = 148.0
+custom_fonts/font = ExtResource( 10 )
+text = "Wood: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionPanel" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -125.0
+margin_bottom = 75.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="ActionPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+patch_margin_left = 14
+patch_margin_top = 18
+patch_margin_right = 14
+patch_margin_bottom = 15
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ActionPanel"]
+anchor_left = 0.129
+anchor_top = 0.054
+anchor_right = 0.882
+anchor_bottom = 0.935
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Upgrades" type="Button" parent="ActionPanel/VBoxContainer"]
+margin_top = 8.0
+margin_right = 76.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 0, 70 )
+toggle_mode = true
+text = "Upgrades"
+
+[node name="SoldierGen" type="Button" parent="ActionPanel/VBoxContainer"]
+margin_top = 98.0
+margin_right = 76.0
+margin_bottom = 168.0
+rect_min_size = Vector2( 0, 70 )
+text = "Give Food"
+
+[node name="UpgradePanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.075
+margin_left = -400.0
+margin_right = 400.0
+margin_bottom = 500.0
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="UpgradePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+patch_margin_left = 14
+patch_margin_top = 18
+patch_margin_right = 14
+patch_margin_bottom = 15
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UpgradePanel"]
+anchor_left = 0.015
+anchor_top = 0.02
+anchor_right = 0.985
+anchor_bottom = 0.98
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UpgradePanel/ScrollContainer"]
+margin_right = 764.0
+margin_bottom = 622.0
+size_flags_horizontal = 3
+
+[node name="Header" type="HBoxContainer" parent="UpgradePanel/ScrollContainer/VBoxContainer"]
+margin_right = 764.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 80 )
+alignment = 1
+
+[node name="Label" type="Label" parent="UpgradePanel/ScrollContainer/VBoxContainer/Header"]
+margin_left = 324.0
+margin_top = 21.0
+margin_right = 439.0
+margin_bottom = 58.0
+custom_fonts/font = ExtResource( 11 )
+text = "Upgrades"
+
+[node name="HSeparator" type="HSeparator" parent="UpgradePanel/ScrollContainer/VBoxContainer"]
+margin_top = 84.0
+margin_right = 764.0
+margin_bottom = 88.0
+
+[node name="SoldierUpgrades" type="VBoxContainer" parent="UpgradePanel/ScrollContainer/VBoxContainer"]
+margin_top = 92.0
+margin_right = 764.0
+margin_bottom = 265.0
+size_flags_horizontal = 3
+
+[node name="Header" type="Label" parent="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades"]
+margin_right = 764.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 11 )
+text = "Building Upgrades"
+
+[node name="FirstUpgrade" type="HBoxContainer" parent="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades"]
+margin_top = 41.0
+margin_right = 764.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 0, 50 )
+script = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades/FirstUpgrade"]
+margin_top = 11.0
+margin_right = 440.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 10 )
+text = "Adds x2 to Wood Production. (35 Steel, 50 Wood)"
+
+[node name="Button" type="Button" parent="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades/FirstUpgrade"]
+margin_left = 444.0
+margin_right = 533.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 10 )
+text = "Upgrade!"
+
+[node name="SecondUpgrade" type="HBoxContainer" parent="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades"]
+margin_top = 95.0
+margin_right = 764.0
+margin_bottom = 128.0
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades/SecondUpgrade"]
+margin_top = 3.0
+margin_right = 430.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 10 )
+text = "Adds x2 to Steel Production (35 Steel, 50 Wood)"
+
+[node name="Button" type="Button" parent="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades/SecondUpgrade"]
+margin_left = 434.0
+margin_right = 523.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 10 )
+text = "Upgrade!"
+
+[node name="ThirdUpgrade2" type="HBoxContainer" parent="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades"]
+margin_top = 132.0
+margin_right = 764.0
+margin_bottom = 165.0
+
+[node name="Label" type="Label" parent="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades/ThirdUpgrade2"]
+margin_top = 3.0
+margin_right = 459.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 10 )
+text = "Adds 0.1 ATK Speed to Towers! (50 Steel, 35 Wood)"
+
+[node name="Button" type="Button" parent="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades/ThirdUpgrade2"]
+margin_left = 463.0
+margin_right = 552.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 10 )
+text = "Upgrade!"
+
+[node name="HSeparator" type="HSeparator" parent="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades"]
+margin_top = 169.0
+margin_right = 764.0
+margin_bottom = 173.0
+
+[node name="PlayerUpgrades" type="VBoxContainer" parent="UpgradePanel/ScrollContainer/VBoxContainer"]
+margin_top = 269.0
+margin_right = 764.0
+margin_bottom = 490.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Label" parent="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades"]
+margin_right = 764.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 11 )
+text = "Player Upgrades"
+
+[node name="FirstUpgrade" type="HBoxContainer" parent="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades"]
+margin_top = 41.0
+margin_right = 764.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 0, 50 )
+script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades/FirstUpgrade"]
+margin_top = 11.0
+margin_right = 316.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 10 )
+text = "Makes Soldiers x2 faster! (50 Food)"
+
+[node name="Button" type="Button" parent="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades/FirstUpgrade"]
+margin_left = 320.0
+margin_right = 409.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 10 )
+text = "Upgrade!"
+
+[node name="SecondUpgrade" type="HBoxContainer" parent="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades"]
+margin_top = 95.0
+margin_right = 764.0
+margin_bottom = 152.0
+script = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades/SecondUpgrade"]
+margin_right = 396.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 10 )
+text = "Make more Soldiers! Adds a 0.25 increase to
+Soldier production. (50 Steel, 50 Wood)"
+
+[node name="Button" type="Button" parent="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades/SecondUpgrade"]
+margin_left = 400.0
+margin_right = 489.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 10 )
+text = "Upgrade!"
+
+[node name="ThirdUpgrade" type="HBoxContainer" parent="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades"]
+margin_top = 156.0
+margin_right = 764.0
+margin_bottom = 213.0
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades/ThirdUpgrade"]
+margin_right = 301.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 10 )
+text = "Adds 0.5 ATK DMG to your Clicks.
+(10 Steel, 10 Wood, 10 Food)"
+
+[node name="Button" type="Button" parent="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades/ThirdUpgrade"]
+margin_left = 305.0
+margin_right = 394.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 10 )
+text = "Upgrade!"
+
+[node name="HSeparator" type="HSeparator" parent="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades"]
+margin_top = 217.0
+margin_right = 764.0
+margin_bottom = 221.0
+
+[node name="WorldUpgrades" type="VBoxContainer" parent="UpgradePanel/ScrollContainer/VBoxContainer"]
+margin_top = 494.0
+margin_right = 764.0
+margin_bottom = 622.0
+
+[node name="Header" type="Label" parent="UpgradePanel/ScrollContainer/VBoxContainer/WorldUpgrades"]
+margin_right = 764.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 11 )
+text = "World Upgrades"
+
+[node name="FirstUpgrade" type="HBoxContainer" parent="UpgradePanel/ScrollContainer/VBoxContainer/WorldUpgrades"]
+margin_top = 41.0
+margin_right = 764.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 50 )
+script = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="UpgradePanel/ScrollContainer/VBoxContainer/WorldUpgrades/FirstUpgrade"]
+margin_right = 430.0
+margin_bottom = 87.0
+custom_fonts/font = ExtResource( 10 )
+text = "Repair the Wall! Doubles the amount of buildings 
+you have, with the cost of starting anew. (1000
+Steel, 1000 Wood)"
+
+[node name="Button" type="Button" parent="UpgradePanel/ScrollContainer/VBoxContainer/WorldUpgrades/FirstUpgrade"]
+margin_left = 434.0
+margin_right = 523.0
+margin_bottom = 87.0
+custom_fonts/font = ExtResource( 10 )
+text = "Upgrade!"
+
+[node name="Debug" type="Button" parent="."]
+visible = false
+margin_left = 1634.16
+margin_top = 246.925
+margin_right = 1864.16
+margin_bottom = 266.925
+text = "DEBUG RESOURCES BUTTON OMG"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="toggled" from="ActionPanel/VBoxContainer/Upgrades" to="." method="_on_Upgrades_toggled"]
+[connection signal="pressed" from="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades/FirstUpgrade/Button" to="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades/FirstUpgrade" method="_on_Button_pressed"]
+[connection signal="pressed" from="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades/SecondUpgrade/Button" to="UpgradePanel/ScrollContainer/VBoxContainer/SoldierUpgrades/SecondUpgrade" method="_on_Button_pressed"]
+[connection signal="pressed" from="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades/FirstUpgrade/Button" to="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades/FirstUpgrade" method="_on_Button_pressed"]
+[connection signal="pressed" from="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades/SecondUpgrade/Button" to="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades/SecondUpgrade" method="_on_Button_pressed"]
+[connection signal="pressed" from="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades/ThirdUpgrade/Button" to="UpgradePanel/ScrollContainer/VBoxContainer/PlayerUpgrades/ThirdUpgrade" method="_on_Button_pressed"]
+[connection signal="pressed" from="UpgradePanel/ScrollContainer/VBoxContainer/WorldUpgrades/FirstUpgrade/Button" to="UpgradePanel/ScrollContainer/VBoxContainer/WorldUpgrades/FirstUpgrade" method="_on_Button_pressed"]
+[connection signal="pressed" from="Debug" to="." method="_on_Button_pressed"]
