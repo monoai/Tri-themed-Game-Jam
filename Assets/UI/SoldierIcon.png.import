@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WoodIcon.png-452696baeeedfa7dcf3f2bcfcc46152a.stex"
+path="res://.import/SoldierIcon.png-e35a34039935d2bf19f11cf68cc2bee3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/WoodIcon.png"
-dest_files=[ "res://.import/WoodIcon.png-452696baeeedfa7dcf3f2bcfcc46152a.stex" ]
+source_file="res://Assets/UI/SoldierIcon.png"
+dest_files=[ "res://.import/SoldierIcon.png-e35a34039935d2bf19f11cf68cc2bee3.stex" ]
 
 [params]
 

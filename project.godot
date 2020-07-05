@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "enemy_class",
 "language": "GDScript",
-"path": "res://Enemy.gd"
+"path": "res://Scripts/Enemy.gd"
 }, {
 "base": "RigidBody2D",
 "class": "soldier_class",

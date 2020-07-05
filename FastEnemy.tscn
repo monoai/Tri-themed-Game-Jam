@@ -1,10 +1,11 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Life.gd" type="Script" id=1]
-[ext_resource path="res://Assets/LifeBarProgress.png" type="Texture" id=2]
-[ext_resource path="res://Assets/LifeBarUnder.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/LifeBarProgress.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/LifeBarUnder.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Enemies/FastMob.png" type="Texture" id=4]
 [ext_resource path="res://FastEnemy.gd" type="Script" id=5]
+
 
 [sub_resource type="CapsuleShape2D" id=48]
 radius = 14.018

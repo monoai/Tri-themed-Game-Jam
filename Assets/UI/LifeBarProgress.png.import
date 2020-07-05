@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SteelIcon.png-0a1dc9fbe6d3246d7b3fcb65d11bd13e.stex"
+path="res://.import/LifeBarProgress.png-3fd9f4208f02bd56d191cc694331c680.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SteelIcon.png"
-dest_files=[ "res://.import/SteelIcon.png-0a1dc9fbe6d3246d7b3fcb65d11bd13e.stex" ]
+source_file="res://Assets/UI/LifeBarProgress.png"
+dest_files=[ "res://.import/LifeBarProgress.png-3fd9f4208f02bd56d191cc694331c680.stex" ]
 
 [params]
 

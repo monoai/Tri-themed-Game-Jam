@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SoldierIcon.png-6d94b99de5744e0891aeeb6afd4dafb0.stex"
+path="res://.import/LifeBarUnder.png-6f242e30aa1b4aae231366c97f17c928.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SoldierIcon.png"
-dest_files=[ "res://.import/SoldierIcon.png-6d94b99de5744e0891aeeb6afd4dafb0.stex" ]
+source_file="res://Assets/UI/LifeBarUnder.png"
+dest_files=[ "res://.import/LifeBarUnder.png-6f242e30aa1b4aae231366c97f17c928.stex" ]
 
 [params]
 
